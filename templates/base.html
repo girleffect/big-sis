@@ -1,0 +1,81 @@
+<!doctype html>
+{% load wagtailuserbar tailwind_tags helpers_tags wagtailsettings_tags %}
+{% get_settings %}
+{% get_stage as stage %}
+{% check_for_moya_app as moya_flag %}
+
+<html class="no-js " lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
+
+    <link rel="apple-touch-icon" sizes="120x120" href="{{STATIC_URL}}img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{STATIC_URL}}img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{STATIC_URL}}img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{STATIC_URL}}img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="{{STATIC_URL}}img/favicon/safari-pinned-tab.svg" color="#5100b3">
+    <link rel="shortcut icon" href="{{STATIC_URL}}img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#5100b3">
+    <meta name="msapplication-config" content="{{STATIC_URL}}img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#5100b3">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    {% include 'seo.html' %}
+    {% if settings.helpers.GlobalSettings %}
+        {% with global_settings=settings.helpers.GlobalSettings %}
+            {% for item in global_settings.scripts.all %}
+                {% if moya_flag and item.hide_on_moya %}
+                {% else %}
+                {% if item.position == 'head' %}
+                    {{ item.script|safe }}
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        {% endwith %}
+    {% endif %}
+</head>
+
+
+<body class="min-h-screen flex flex-col {% if stage == 'local' %}debug-screens{% endif %}" x-data="{stickyMenu: false}" :class="{'!pt-16' : stickyMenu }" @scroll.window="stickyMenu = (window.pageYOffset > 100) ? true : false">
+    {% wagtailuserbar 'bottom-left' %}
+    {% if settings.helpers.GlobalSettings %}
+        {% with global_settings=settings.helpers.GlobalSettings %}
+            {% for item in global_settings.scripts.all %}
+                {% if  moya_flag and item.hide_on_moya %}
+                {% else %}
+                    {% if item.position == 'body' %}
+                        {{ item.script|safe }}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+    {% endif %}
+   
+    {% block content %}
+    {% endblock %}
+    {% include 'includes/footer.html' %}
+
+{% if moya_flag %}
+<a href="" class="fixed bg-primary-500 bottom-[22px] right-3 z-10 border-color-white rounded-full p-2 border-2">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiBjbGFzcz0iIj48ZyB0cmFuc2Zvcm09Im1hdHJpeCgwLjczMjMwNCAwIDAgMC43MzIzMDQgNjguNTMwMyAxMjQuMjU0KSI+PHBhdGggZD0iTTQ0OCwwSDY0QzI4LjcwNCwwLDAsMjguNzA0LDAsNjR2Mjg4YzAsMzUuMjk2LDI4LjcwNCw2NCw2NCw2NGgzMnY4MCAgYzAsNi4yMDgsMy41ODQsMTEuODcyLDkuMjE2LDE0LjQ5NmMyLjE0NCwwLjk5Miw0LjQ4LDEuNTA0LDYuNzg0LDEuNTA0YzMuNjgsMCw3LjMyOC0xLjI4LDEwLjI0LTMuNzEyTDIzMi45OTIsNDE2SDQ0OCAgYzM1LjI5NiwwLDY0LTI4LjcwNCw2NC02NFY2NEM1MTIsMjguNzA0LDQ4My4yOTYsMCw0NDgsMHoiIGRhdGEtb3JpZ2luYWw9IiMyMTk2RjMiIGNsYXNzPSJhY3RpdmUtcGF0aCIgZGF0YS1vbGRfY29sb3I9IiMyMTk2RjMiIGZpbGw9IiNGNkY2RjYiLz48L2c+IDwvc3ZnPgo=" alt=""></a>
+{% endif %}
+
+
+<!-- Moya Indicator/ For Debuggin-->
+{% comment %}
+{% if moya_flag %}
+<div class="fixed bg-primary-500 top-[22px] left-3 z-10 border-color-white">
+  On Moya   
+</div>
+{% else %}
+<div class="fixed bg-primary-500 top-[22px] left-3 z-10 border-color-white">
+    Not Moya   
+  </div>
+ {% endif %}
+{% endcomment %}
+</body>
+
+</html>

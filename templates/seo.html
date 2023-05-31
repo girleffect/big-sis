@@ -1,0 +1,39 @@
+{% load wagtailcore_tags wagtailimages_tags  %}
+<title>
+    {% if page.seo_title %}
+        {{ page.seo_title }}
+    {% else %}
+        {{ page.title }}
+    {% endif %}
+</title>
+
+<meta name="description" content="{{ page.search_description }}"/>
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{{ page.seo_title }}">
+<meta itemprop="description" content="{{ page.search_description }}">
+{% if page.seo_image %}
+   
+    <meta itemprop="image" content="{{ image.url }}">
+{% endif %}
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.seo_title }}">
+<meta name="twitter:description" content="{{ page.search_description }}">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+{% if page.seo_image %}
+    {% image page.seo_image width-600 format-jpeg as image %}
+    <meta name="twitter:image:src" content="{{ image.url }}">
+{% endif %}
+<!-- Open Graph data -->
+<meta property="og:title" content="{{ page.seo_title }}"/>
+<meta property="og:type" content="website"/>
+{% if page.seo_image %}
+    {% image page.seo_image width-600 format-jpeg as image %}
+    <meta property="og:image" content="{{ image.url }}"/>
+{% endif %}
+<meta property="og:description" content="{{ page.search_description }}"/>
+<meta property="og:site_name" content="{{ page.seo_title }}"/>
+<meta property="og:url" content="{{ page.get_full_url }}"/>
+<link rel="alternate" hreflang="x-default" href="{{ page.get_full_url }}"/>
+<link rel="canonical" href="{{ page.get_full_url }}"/>

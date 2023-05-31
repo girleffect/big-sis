@@ -1,0 +1,34 @@
+x-app: &default-app
+  build:
+    context: "."
+  volumes:
+    - ".:/app:rw"
+    - "./data:/data:rw"
+  restart: "unless-stopped"
+
+services:
+  db:
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_HOST_AUTH_METHOD: trust
+    image: postgres:13.5-alpine
+    volumes:
+    - .:/app:rw
+  web:
+    <<: *default-app
+    command: python manage.py runserver 0.0.0.0:80
+    env_file: .env-local
+    links:
+    - db:postgres
+    ports:
+    - 8000:80
+    volumes:
+    - .:/app:rw
+    - ./data:/data:rw
+  # tailwind:
+    # <<: *default-app
+    # command: python manage.py tailwind start
+    # Without tty, no stdin, and tailwind watcher aborts
+    # https://github.com/tailwindlabs/tailwindcss/issues/5324
+    # tty: true
+version: '2'

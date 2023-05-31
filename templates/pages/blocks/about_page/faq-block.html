@@ -1,0 +1,48 @@
+<!-- #region FAQS -->
+
+<section class="py-16 lg:py-24 bg-secondary text-white">
+    <div class="container">
+
+        <h3 class="text-h3 font-medium">
+            {{ value.title }}
+        </h3>
+
+        <div class="grid divide-y divide-neutral-500 border-neutral-500 border-y mx-auto mt-8">
+            {% for item in value.items %}
+                <!-- #region ACCORDION ELEMENT -->
+                <div class="pb-5">
+                    <details class="group">
+                        <!-- #region ACCORDION TITLE -->
+                        <summary class="flex justify-between items-center cursor-pointer list-none pt-5 ">
+
+                            <span> {{ item.question }}</span>
+                            <span class="transition duration-300 group-open:rotate-180 mb-auto">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                     viewBox="0 0 24 24" width="24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        <!-- #endregion ACCORDION TITLE -->
+                        <!-- #region ACCORDION CONTENT -->
+                        <div>
+                            
+                            <p class="mt-3 animate-fadeOutUp group-open:animate-fadeInDown text-sm max-h-0 opacity-0 group-open:opacity-100 group-open:max-h-screen">
+
+                            {{ item.answer|linebreaksbr }}
+                        </p>
+                    </div>
+
+                        <!-- #endregion ACCORDION CONTENT -->
+                    </details>
+                </div>
+
+                <!-- #endregion ACCORDION ELEMENT -->
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>
+<!-- #endregion FAQS -->

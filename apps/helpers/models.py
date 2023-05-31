@@ -1,0 +1,80 @@
+from django.db import models
+from wagtail.models import Page, Orderable, ClusterableModel
+from modelcluster.fields import ParentalKey
+from wagtail.fields import RichTextField,StreamField
+from wagtail.admin.panels import FieldPanel, TabbedInterface, ObjectList, MultiFieldPanel,InlinePanel,FieldRowPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail import blocks
+from wagtail.documents.blocks import DocumentChooserBlock
+from wagtail.images.blocks import ImageChooserBlock
+
+# This class is used for providing an easy way to edit the footer content and to add scripts to the head and body of the html.
+@register_setting
+class GlobalSettings(BaseSetting,ClusterableModel):
+    text = models.TextField(blank=True)
+    email = models.EmailField(blank=True)
+    facebook_url = models.URLField(blank=True)
+    tiktok_url = models.URLField(blank=True)
+    background_image = StreamField([
+        ('Image', ImageChooserBlock()),
+        ('Document', DocumentChooserBlock()),
+
+    ],use_json_field=False, blank=True, min_num=0, max_num=1, collapsed=True,
+        block_counts={
+            'Image': {'min_num': 0, 'max_num': 1},
+            'Document': {'min_num': 0, 'max_num': 1},
+        },
+    )
+    sitemap = StreamField([
+        ('Links', blocks.ListBlock(blocks.PageChooserBlock())),
+
+    ],use_json_field=False, blank=True, min_num=0, max_num=1, collapsed=True,
+        block_counts={
+            'Links': {'min_num': 0, 'max_num': 1},
+        },
+    )
+    scripts_panel = [
+        MultiFieldPanel(
+            [
+                InlinePanel('scripts', label="Script"),
+            ],
+            heading="Scripts",
+            classname="collapsible"
+        ),
+
+
+    ]
+    footer_panel = [
+        MultiFieldPanel(
+            [
+                FieldPanel('text'),
+                FieldPanel('email'),
+                FieldPanel('facebook_url'),
+                FieldPanel('tiktok_url'),
+                FieldPanel('background_image'),
+                FieldPanel('sitemap')
+            ],
+            heading="Footer",
+            classname="collapsible"
+        ),
+
+
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(scripts_panel, heading='Scripts'),
+        ObjectList(footer_panel, heading='Footer'),
+    ])
+
+    class Meta:
+        verbose_name = 'Global Settings'
+
+class ThirdPartyScript(Orderable):
+    page = ParentalKey(GlobalSettings, on_delete=models.CASCADE, related_name='scripts')
+    script = models.TextField()
+    POSITION_LIST = [
+        ('head','Head'),
+        ('body', 'Body'),
+    ]
+    position = models.CharField(max_length=255,default='head',choices=POSITION_LIST)
+    hide_on_moya = models.BooleanField(default=False, help_text='Do not load Script on Moya App')

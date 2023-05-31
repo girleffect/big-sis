@@ -1,0 +1,18 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<div class="{{class}} group lg:p-2 {% if moya == 'true' %} mb-8 {% endif %}" >
+    {% if post.image %}
+    <a href="{% pageurl post %}"  class="inline-block rounded-md  w-full overflow-hidden">
+        <img class="w-full group-hover:scale-105 transition-transform duration-200" src="{% image_url post.image  'fill-400x400|format-jpeg' %}" alt="">
+    </a>
+    {% endif %}
+    <a href="  {{ post.get_parent.url }}" class="inline-block mt-2 mb-2 text-xs font-bold uppercase text-primary-500 tracking-widest hover:text-primary-700 cursor-pointer">
+        {{ post.get_parent.title }}
+    </a>
+    <a href="{% pageurl post %}" class="block pb-2 text-h4 font-medium">
+        <!-- TODO: intro to be up to three lines -->
+        {{ post.title }}
+    </a>
+    <a class="block" href="{% pageurl post %}" >
+        {{ post.preview_text }}
+    </a>
+</div>

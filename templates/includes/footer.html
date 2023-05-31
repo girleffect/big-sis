@@ -1,0 +1,85 @@
+{% load  wagtailcore_tags wagtailsettings_tags wagtailimages_tags %}
+{% get_settings %}
+<!-- #region FOOTER -->
+{% with global_settings=settings.helpers.GlobalSettings %}
+    <footer class="bg-dark bg-cover text-white text-center mt-auto"
+            {% if global_settings.background_image %}{% for block in global_settings.background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"
+            {% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"
+            {% endif %}{% endfor %}{% endif %}>
+        <section class="container py-12">
+            {% if global_settings.text %}
+                <h3 class="text-h3 max-w-md font-bold mx-auto mb-12">
+                    {{ global_settings.text|linebreaksbr }}
+                </h3>
+            {% endif %}
+            {% if global_settings.email %}
+                <a class="inline-flex text-base gap-2 hover:opacity-70 transition-opacity duration-300"
+                   href="mailto:{{ global_settings.email }}">
+                    <img class='mr-2 w-5 my-auto' loading="lazy" src="{{ STATIC_URL }}img/icons/mail.png" alt="">
+                    Email us at {{ global_settings.email }}
+                </a>
+            {% endif %}
+
+            <!-- TODO: Add links from backend -->
+            <div class="flex justify-center mt-10 gap-3">
+                {% if global_settings.facebook_url %}
+                    <a href="{{ global_settings.facebook_url }}"
+                       target="_blank">
+                        <img class='h-7 transition-transform hover:scale-110'
+                             src="{{ STATIC_URL }}img/icons/logos_facebook.png"
+                             alt="">
+                    </a>
+                {% endif %}
+                {% if global_settings.tiktok_url %}
+                    <a href="{{ global_settings.tiktok_url }}"
+                       target="_blank">
+                        <img class='h-7 transition-transform hover:scale-110'
+                             src="{{ STATIC_URL }}img/icons/logos_tiktok-icon.png"
+                             alt="">
+                    </a>
+                {% endif %}
+            </div>
+        </section>
+        {% if global_settings.sitemap %}
+            <section class="bg-primary-600 py-8 flex flex-col">
+                {% for block in global_settings.sitemap %}
+                    {% for link in block.value %}
+                        {% if link %}
+                            <a href="{% pageurl link %}" class="underline text-base hover:opacity-70 transition-opacity duration-300 ">
+                                {{ link.title }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </section>
+        {% endif %}
+    </footer>
+{% endwith %}
+<!-- #endregion FOOTER -->
+
+
+<div class="fixed bottom-4 right-16 letschat ">
+    <svg width="126" height="62" viewBox="0 0 126 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_d_692_6)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20 10C14.4772 10 10 14.4772 10 20V42C10 47.5228 14.4772 52 20 52H96C101.523 52 106 47.5228 106 42V35.7546L116 31L106 26.2453V20C106 14.4772 101.523 10 96 10H20Z"
+                  fill="white"/>
+        </g>
+        <path d="M26.184 35H32.264V33.496H28.056V25.32H26.184V35ZM36.4774 35.16C37.4374 35.16 38.4454 34.984 39.1334 34.744L38.8454 33.368C38.1414 33.56 37.3414 33.688 36.7814 33.688C35.3734 33.688 34.4614 33.304 34.4614 31.768H39.3414V31.112C39.3414 28.872 38.4774 27.336 36.2694 27.336C34.1414 27.336 32.6374 28.36 32.6374 31.384C32.6374 34.328 34.1254 35.16 36.4774 35.16ZM34.5094 30.552C34.5894 29.288 35.2294 28.664 36.1094 28.664C37.0694 28.664 37.4694 29.48 37.4694 30.552H34.5094ZM43.8118 35.16C44.3558 35.16 45.2358 35.032 45.7158 34.856L45.5238 33.4C45.0438 33.512 44.4998 33.608 44.0358 33.608C43.2998 33.608 43.0118 33.432 43.0118 32.648V28.904H45.3318V27.528H43.0118V25.992H41.1878V27.528H40.0998V28.904H41.1878V32.744C41.1878 34.632 42.1478 35.16 43.8118 35.16ZM46.7684 27.08H47.8404C48.2564 26.456 48.5604 25.688 48.5604 24.632V23.512H47.2324V25.128C47.2324 25.64 47.1044 26.44 46.7684 27.08ZM51.5549 35.16C52.8029 35.16 54.6909 34.648 54.6909 32.824C54.6909 30.328 50.9629 30.68 50.9629 29.496C50.9629 29.08 51.3149 28.808 52.0829 28.808C52.7869 28.808 53.3469 28.904 54.0029 29.08L54.3229 27.72C53.6189 27.48 52.8669 27.336 52.0349 27.336C50.5149 27.336 49.1389 28.088 49.1389 29.592C49.1389 32.248 52.8989 31.768 52.8989 32.92C52.8989 33.368 52.4669 33.688 51.3949 33.688C50.8669 33.688 50.1309 33.592 49.2669 33.448L49.0429 34.856C49.7629 35.064 50.5629 35.16 51.5549 35.16ZM64.7143 35.16C66.0263 35.16 66.8423 34.968 67.6263 34.68L67.2103 33.256C66.5223 33.448 65.8983 33.56 64.9223 33.56C62.8263 33.56 61.3863 32.36 61.3863 30.104C61.3863 27.832 62.7623 26.712 64.6823 26.744C65.7863 26.744 66.2503 26.888 67.0823 27.112L67.5783 25.736C66.9703 25.464 66.1223 25.176 64.6503 25.176C61.4343 25.176 59.4663 27.128 59.4663 30.216C59.4663 33.304 61.3063 35.16 64.7143 35.16ZM69.0073 35H70.8313V29.544C71.2793 29.288 72.0153 28.952 72.7513 28.952C73.7593 28.952 73.9513 29.336 73.9513 30.456V35H75.7593V30.28C75.7593 28.696 75.6153 27.352 73.3433 27.352C72.3193 27.352 71.3273 27.944 70.8313 28.344V24.68H69.0073V35ZM79.5039 35.128C80.4959 35.128 81.2799 34.632 81.7919 34.232C81.9679 34.856 82.7999 35.032 83.5839 35.048C83.7439 35.064 83.9199 35.064 84.0799 35.048L84.1439 33.672C83.7439 33.656 83.4239 33.576 83.4239 33.224V29.576C83.4239 27.976 82.4959 27.336 80.3999 27.336C79.2639 27.336 78.3359 27.608 77.5999 27.88L77.9679 29.24C78.6079 29.048 79.3759 28.904 80.1119 28.904C81.1679 28.904 81.6319 29.144 81.6319 29.944V30.632H80.1599C78.7839 30.648 77.0719 31.048 77.0719 32.904C77.0719 34.36 77.9839 35.128 79.5039 35.128ZM81.6319 33.24C81.0719 33.512 80.4799 33.688 79.8879 33.688C79.3279 33.688 78.8639 33.416 78.8639 32.792C78.8639 32.12 79.4559 31.8 80.2879 31.768L81.6319 31.736V33.24ZM88.4836 35.16C89.0276 35.16 89.9076 35.032 90.3876 34.856L90.1956 33.4C89.7156 33.512 89.1716 33.608 88.7076 33.608C87.9716 33.608 87.6836 33.432 87.6836 32.648V28.904H90.0036V27.528H87.6836V25.992H85.8596V27.528H84.7716V28.904H85.8596V32.744C85.8596 34.632 86.8196 35.16 88.4836 35.16Z"
+              fill="#170032"/>
+        <defs>
+            <filter id="filter0_d_692_6" x="0" y="0" width="126" height="62" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                               result="hardAlpha"/>
+                <feOffset/>
+                <feGaussianBlur stdDeviation="5"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_692_6"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_692_6" result="shape"/>
+            </filter>
+        </defs>
+    </svg>
+</div>

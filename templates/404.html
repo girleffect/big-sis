@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags helpers_tags %}
+{% check_for_moya_app as moya_flag %}
+{% block content %}
+
+
+
+<!-- #region HEADER -->
+<header class=" md:flex md:flex-col md:align-center md:justify-center overflow-hidden">
+    {% include 'includes/main-nav.html' %}
+
+
+</header>
+<!-- #endregion HEADER -->
+
+<section class="py-16 lg:py-24">
+    <div class="container grid md:grid-cols-12 md:gap-8">
+
+        <div class="col-span-12  lg:mb-5">
+            <h2 class=" text-header-h1 font-bold text-primary-500 mb-3">
+               Oops! 
+               
+            </h2>
+            <p class=" mb-2">
+                <strong>Error 404</strong></p>
+            <p class="">
+           
+
+                It looks like the page you were trying to access has either been moved or doesn't exist. <br>
+               Try visiting the <a href="/" class="text-primary-500 underline">homepage</a> instead.
+                
+
+            </p>
+        </div>
+ 
+    </div>
+</section>
+
+
+
+
+
+
+
+
+{% endblock %}

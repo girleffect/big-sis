@@ -1,0 +1,20 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<section class="py-16 lg:py-24">
+    <div class="container grid md:grid-cols-12 md:gap-8">
+        {% for block in value.columns %}
+            <div class="col-span-12 lg:{{ block.width }}  lg:mb-5">
+                {% if block.title %}
+                    <h2 class="page-header">
+                        {{ block.title }}
+                    </h2>
+                {% endif %}
+                {% for block in block.column %}
+                    {% include_block block %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+

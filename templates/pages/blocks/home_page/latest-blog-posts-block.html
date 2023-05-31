@@ -1,0 +1,75 @@
+{% load helpers_tags wagtailcore_tags wagtailimages_tags %}
+{% get_latest_blog_posts value.number_of_posts_to_show as latest_blog_posts %}
+
+
+
+<!-- #region BLOG -->
+<section class="py-16 lg:py-24">
+
+    {% if not moya_flag %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    {% endif %}
+
+    <div class="container {% if not moya_flag %} max-md:px-12 {% elif moya_flag %}px-5{% endif %}  ">
+        <h2 class="font-bold text-h3 md:text-h2 mb-7">
+            {{ value.title }}
+        </h2>
+        <div class="relative">
+
+            <div class="swiper articles-slider ">
+                <ul class=" {% if not moya_flag %} swiper-wrapper {% elif moya_flag %} grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-4 lg:grid-cols-4 lg:gap-0 {% endif %} ">
+                    {% for post in latest_blog_posts %}
+                    {% include 'blog/includes/featured-post-thumbnail.html' with class="swiper-slide" %}
+                    {% endfor %}
+                </ul>
+
+
+
+            </div>
+            {% if not moya_flag %}
+            <div class="swiper-button-prev after:hidden absolute !-left-9 top-1/2 lg:hidden">
+                <img class="w-4 " src="{{ STATIC_URL }}img/icons/slider-prev.png" alt="">
+            </div>
+            <div class="swiper-button-next after:hidden absolute !-right-9 top-1/2 lg:hidden">
+                <img class="w-4" src="{{ STATIC_URL }}img/icons/slider-next.png" alt="">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- #endregion BLOG -->
+{% if not moya_flag %}
+<script>
+
+    // sliderArrows.classList.remove('hidden');
+    const swiper = new Swiper('.articles-slider', {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        // Responsive breakpoints
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            // when window width is >= 320px
+            0: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            },
+            // when window width is >= 480px
+            748: {
+                slidesPerView: 2,
+                spaceBetween: 30
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 30
+            },
+
+        }
+    });
+
+</script>
+{% endif %}

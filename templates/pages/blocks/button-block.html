@@ -1,0 +1,5 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+            <a class="button  max-sm:w-full max-sm:justify-center !px-6 lg:!px-14 {% if value.show_for == 'desktop_mobile' %}{% elif value.show_for == 'desktop' %} max-lg:hidden  {% elif value.show_for == 'mobile' %} lg:hidden {% endif %}"
+               href="{{ value.button_link }}">{{ value.button_text }}</a>

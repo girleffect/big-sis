@@ -1,0 +1,126 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<section class="bg-secondary py-16 lg:py-24 text-center text-white justify-center" x-data="{ modalOpen: false}">
+    <div class="container  md:px-6">
+        <h2 class="text-h2 font-bold mb-3">{{ value.title }}</h2>
+        <div class="swiper social-posts-slider">
+            <ul class="{% if not moya_flag %} swiper-wrapper justify-center {% elif moya_flag %}grid grid-cols-2 place-content-center md:grid-cols-3 lg:grid-cols-5 gap-4{% endif %}">
+
+                {% for post in value.posts %}
+                <div class="swiper-slide relative">
+                    <a {% if not moya_flag %} @click="modalOpen =!modalOpen; $refs.modalVideo.src='https://www.youtube.com/embed/{{ post.youtube_video_id }}?enablejsapi=1'" {% elif moya_flag%} target="_blank" href="https://www.youtube.com/embed/{{ post.youtube_video_id }}" {% endif %}>
+                        {% image post.image fill-240x360 format-jpeg as image %}
+
+                        <img class="rounded cursor-pointer hover:outline-2 hover:opacity-70 transition-opacity duration-300 w-full "
+                            src="{% image_url post.image  'fill-240x360|format-jpeg' %}" alt="">
+                    </a>
+                    <div id="play_button"  class="scale-75 lg:scale-100 w-20 h-20 rounded-full bg-primary-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+                        <svg width="25" height="39" viewBox="0 0 25 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 19.5L0.249998 38.1195L0.25 0.880452L25 19.5Z" fill="#D9D9D9" />
+                        </svg>
+                    </div>
+                </div>
+                {% endfor %}
+
+        </div>
+    </div>
+    <!-- #region MODAL -->
+    <div x-show="modalOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 text-center ">
+            <!-- #region MODAL OVERLAY -->
+            <div x-cloak @click="modalOpen = false; $refs.modalVideo.src=''" x-show="modalOpen"
+                x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300 transform"
+                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                class="fixed inset-0 transition-opacity bg-secondary bg-opacity-40" aria-hidden="true">
+            </div>
+            <!-- #endregion MODAL OVERLAY -->
+          
+            <!-- #region MODAL CONTENT -->
+            <div x-cloak x-show="modalOpen" x-transition:enter="transition ease-out duration-300 transform"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="transition ease-in duration-300 transform"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                class="inline-block w-auto rounded max-w-sm overflow-hidden  transition-all transform bg-white rounded shadow-xl 2xl:max-w-2xl">
+                <div class="relative">
+
+                    <div class="relative w-[300px] md:w-[450px] h-[530px] md:pb-[800px] w-max-md h-0 ">
+                        <iframe class="absolute top-0 left-0 w-full h-full" x-ref="modalVideo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <!-- </div>
+                    <video class="w-full" x-ref="modalVideo" src="" poster="" controls>
+                    </video> -->
+                    <button @click="modalOpen = false; $refs.modalVideo.src=''"  class="text-black focus:outline-none hover:text-gray-700 absolute top-3 right-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <!-- #endregion MODAL CONTENT -->
+
+    </div>
+    <p class=" max-w-prose mx-auto mt-9 text-lg">{{ value.footnote }}</p>
+    <div class=" flex justify-center gap-4 mt-4">
+        {% for platform in value.social_media_platforms %}
+        <a href="{{ platform.link }}" target="_blank"><img loading="lazy"
+                class='h-8 transition-transform hover:scale-110' src="{% image_url platform.icon  'width-100' %}"
+                alt=""></a>
+        {% endfor %}
+    </div>
+</section>
+
+{% if not moya_flag %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // sliderArrows.classList.remove('hidden');
+        const swiper = new Swiper('.social-posts-slider', {
+            // Optional parameters
+            loop: true,
+            slidesPerView: 1.5,
+            centeredSlides: true,
+            spaceBetween: 20,
+            initialSlide: 2,
+            // centeredSlides:true,
+
+
+            breakpoints: {
+                // // when window width is >= 320px
+                // 0: {
+                //     slidesPerView:1.5,
+                //     spaceBetween: 20
+
+                //     },
+                //     // when window width is >= 480px
+
+                748: {
+                    slidesPerView: 3,
+                    loop: false,
+                    centeredSlides: false,
+                    spaceBetween: 24
+
+                },
+                1200: {
+                    slidesPerView: 5,
+                    loop: false,
+                    centeredSlides: false,
+                    spaceBetween: 24
+
+                },
+
+            }
+        });
+    });
+
+</script>
+{% endif %}
+<!-- #endregion LATEST POSTS -->

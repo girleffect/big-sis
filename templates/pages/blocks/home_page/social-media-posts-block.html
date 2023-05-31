@@ -1,0 +1,78 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+<div>
+
+</div>
+
+<!-- #region LATEST POSTS -->
+<section class="py-16 lg:py-24 text-center text-white bg-secondary" x-data="{ modalOpen: false, myimageURL: 'test'}">
+    <div class="container">
+
+
+
+        <h2 class="mb-3 font-bold text-h3 md:text-h2">{{ value.title }}</h2>
+        <p class="mx-auto text-base max-w-prose mb-9">{{ value.subtitle|linebreaksbr }}</p>
+
+        <div class="grid grid-cols-3 gap-2 lg:grid-cols-6 lg:gap-4">
+            <!-- TODO: remove link from backend-->
+            {% for post in value.posts %}
+            {% image post.image fill-600x900 format-jpeg as imagelg %}
+            <div @click="modalOpen =!modalOpen; $refs.modalImg.src='{{ imagelg.url }}'" >
+                {% image post.image fill-240x360 format-jpeg as image %}
+                <img class="rounded cursor-pointer hover:outline-2 hover:opacity-70 transition-opacity duration-230 w-full" src="{{ image.url }}" alt="" > 
+            </div>
+            {% endfor %}
+
+            <!-- #region MODAL -->
+            <div x-cloak x-show="modalOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
+                role="dialog" aria-modal="true">
+                <div class="flex items-center justify-center min-h-screen px-4 text-center ">
+                    <!-- #region MODAL OVERLAY -->
+                    <div x-cloak @click="modalOpen = false" x-show="modalOpen"
+                        x-transition:enter="transition ease-out duration-300 transform"
+                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                        x-transition:leave="transition ease-in duration-300 transform"
+                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                        class="fixed inset-0 transition-opacity bg-secondary bg-opacity-40" aria-hidden="true">
+                    </div>
+                    <!-- #endregion MODAL OVERLAY -->
+
+                    <!-- #region MODAL CONTENT -->
+                    <div x-cloak x-show="modalOpen" x-transition:enter="transition ease-out duration-300 transform"
+                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                        x-transition:leave="transition ease-in duration-300 transform"
+                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        class="inline-block w-auto rounded max-w-sm overflow-hidden  transition-all transform bg-white rounded shadow-xl 2xl:max-w-2xl">
+                        <div class="relative">
+                            
+                            <img x-ref="modalImg" class="w-full max-w-md lg:max-w-lg" src="" alt="">
+                            <button @click="modalOpen = false"
+                                class="text-black focus:outline-none hover:text-gray-700 absolute top-3 right-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- #endregion MODAL CONTENT -->
+            </div>
+            <!-- #endregion MODAL -->
+        </div>
+    </div>
+    <p class="mx-auto max-w-prose mt-9 text-lg">{{ value.footnote }}</p>
+    <div class="flex justify-center gap-4 mt-3">
+        {% for platform in value.social_media_platforms %}
+        {% image platform.icon width-100 as icon %}
+        <a href="{{ platform.link }}" target="_blank"><img class='h-8 transition-transform hover:scale-110'
+                src="{{ icon.url }}" alt=""></a>
+        {% endfor %}
+    </div>
+</section>
+<!-- #endregion LATEST POSTS -->

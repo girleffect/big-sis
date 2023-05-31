@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags helpers_tags %}
+{% check_for_moya_app as moya_flag %}
+{% block content %}
+
+
+
+<!-- #region HEADER -->
+<header class=" md:flex md:flex-col md:align-center md:justify-center overflow-hidden">
+    {% include 'includes/main-nav.html' %}
+
+
+</header>
+<!-- #endregion HEADER -->
+
+<section class="py-16 lg:py-24">
+    <div class="container grid md:grid-cols-12 md:gap-8">
+
+        <div class="col-span-12  lg:mb-5">
+            <h2 class=" text-header-h1 font-bold text-primary-500 mb-3">
+                Something     went wrong!
+               
+            </h2>
+      
+            <p class=" mb-2">
+                <strong>Error 500</strong></p>
+            <p class="">
+           
+                We're sorry, but our server is experiencing some technical difficulties right now. <br>   
+                Our team is working hard to fix the issue, but in the meantime, please try again later.
+
+               
+                
+
+            </p>
+        </div>
+ 
+    </div>
+</section>
+
+
+
+
+
+
+
+
+{% endblock %}

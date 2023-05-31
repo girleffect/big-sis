@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags helpers_tags %}
+{% check_for_moya_app as moya_flag %}  
+{% block content %}
+    <!-- #region HEADER -->
+    <header class=" md:flex md:flex-col md:align-center md:justify-center overflow-hidden">
+        {% include 'includes/main-nav.html' %}
+    </header>
+    <!-- #endregion HEADER -->
+    {% for block in page.body %}
+    {% if not block.value.hide_section %}
+        {% if moya_flag %} 
+            {% if not block.value.hide_on_moya %}
+                {% include_block block %}
+            {% endif %} 
+         {% else %} 
+            {% include_block block %}
+         {% endif %}  
+    {% endif %}
+{% endfor %}
+{% endblock %}

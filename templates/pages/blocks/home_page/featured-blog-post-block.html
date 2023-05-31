@@ -1,0 +1,33 @@
+{% load helpers_tags wagtailcore_tags wagtailimages_tags %}
+<!-- #region LATEST ARTICLE -->
+{% if value.featured_blog_post %}
+    {% get_latest_blog_post value.featured_blog_post as post %}
+{% else %}
+    {% get_latest_blog_post as post %}
+{% endif %}
+
+<section class="bg-secondary group">
+    <a class="container flex items-center justify-between py-5" href="{% pageurl post %}">
+        <div class="flex">
+            {% if post.image %}
+                {% image post.image fill-80x80 format-jpeg as image %}
+                <img class="pr-4 rounded-sm w-14" src="{{ image.url }}" alt="">
+            {% endif %}
+            <div class="">
+                <p class="text-xs text-gray-300 uppercase">
+                    {{ post.get_parent.title }}
+                </p>
+                <h3 class="text-white text-h4">                  
+                    {{ post.title }}
+                </h3>
+            </div>
+        </div>
+
+        <div>
+            <img  class='relative left-0 w-5 transition-all duration-300 group-hover:left-4' src="{{STATIC_URL}}img/arrow-right.png" alt="">
+        </div>
+
+    </a>
+</section>
+
+<!-- #endregion LATEST ARTICLE -->

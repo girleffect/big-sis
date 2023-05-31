@@ -1,0 +1,77 @@
+{% load wagtailimages_tags %}
+{% if not moya_flag %} 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+{% endif %}
+<!-- #region STATS AND QUOTES -->
+<section class=" py-16 lg:py-24">
+    <div class="container max-w-3xl">
+
+        <h2 class="text-h3 font-bold mb-3 text-center">{{ value.title }}</h2>
+
+        <!-- #region STATS -->
+        <div class="grid grid-cols-3 gap-12">
+            {% for key_figure in value.key_figures %}
+                <p class="flex items-center max-md:flex-col text-sm">
+                    <span class="text-4xl md:text-5xl text-primary-500 font-bold pr-2">{{ key_figure.numbers }}</span>
+                    {{ key_figure.description|linebreaksbr }}
+                </p>
+            {% endfor %}
+        </div>
+        <!-- #endregion STATS -->
+
+        <!-- #region TESTIMONIALS -->
+        <div class="relative ">
+            <div class="swiper testimonials-slider" >
+                <ul class="swiper-wrapper">
+                    {% for testimonial in value.testimonials %}
+                        <!-- #region TESTIMONIAL -->
+                        <div class="swiper-slide">
+                            <p class="py-8 px-6 border-2 border-neutral-300 mt-10 rounded-[20px] relative">
+                                {{ testimonial.description|linebreaksbr }}
+                                <img class='w-10 absolute left-1/2 bottom-px translate-y-full -translate-x-16'
+                                     src="{{ STATIC_URL }}img/icons/speech-bubble-element.png" alt="">
+                            </p>
+                            <div class="text-center mt-3">
+                                {% if testimonial.photo %}
+                                    {% image testimonial.photo width-200 as photo %}
+                                    <img class="rounded-full w-10 mx-auto mb-2" src="{{ photo.url }}" alt="">
+                                {% endif %}
+                                <p class="text-sm">
+                                    {{ testimonial.name }}
+                                </p>
+                            </div>
+                        </div>
+                        <!-- #endregion TESTIMONIAL -->
+                    {% endfor %}
+                </ul>
+            </div>
+            {% if not moya_flag %} 
+            <div class="swiper-button-prev after:hidden absolute !-left-6 md:!-left-9 top-1/2 lg:hidden">
+                <img class="w-4 " src="{{ STATIC_URL }}img/icons/slider-prev.png" alt="">
+            </div>
+            <div class="swiper-button-next after:hidden absolute !-right-6 md:!-right-9 top-1/2 lg:hidden">
+                <img class="w-4" src="{{ STATIC_URL }}img/icons/slider-next.png" alt="">
+            </div>
+            {% endif %} 
+        </div>
+
+        {% if not moya_flag %} 
+        <script>
+            const swiper = new Swiper('.testimonials-slider', {
+            slidesPerView: 1,
+       
+          
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+        });
+        </script>
+{% endif %}
+
+        <!-- #endregion TESTIMONIALS -->
+    </div>
+</section>
+<!-- #endregion STATS AND QUOTES -->

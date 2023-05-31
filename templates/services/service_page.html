@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block content %}
+    <!-- #region HEADER -->
+    <header class=" md:flex md:flex-col md:align-center md:justify-center overflow-hidden">
+        {% include 'includes/main-nav.html' %}
+        <!-- #region HEADER CONTENT -->
+        <div class="container py-16 my-auto flex flex-col md:flex-row items-center grid grid-cols-12 md:gap-8">
+            <div class="col-span-12 mb-9 md:mb-0 md:col-span-7 lg:col-span-6 lg:pr-20 ">
+                <a href="{% pageurl page.get_parent %}" class="back-button">
+                    <img loading="lazy" class="w-2" src="{{ STATIC_URL }}img/icons/slider-prev.png" alt="">
+                    {{ page.get_parent.title }}
+                </a>
+                <h1 class="text-h3 md:text-h2 te font-bold ">
+                    {{ page.title }}
+                </h1>
+                <p class="text-base my-3">
+                    {{ page.text|linebreaksbr }}
+                </p>
+                {% if page.price %}
+                    <p class="font-medium text-h3 mt-1">{{ page.price }}</p>
+                {% endif %}
+            </div>
+            <div class="col-span-12 md:col-span-5 lg:col-span-6 mb-3 md:mx-auto md:mt-auto relative w-full h-full justify-start">
+                <div class=" flex flex-col gap">
+                    {% if page.phone %}
+                        <a href="tel:{{ page.phone }}" class="button">
+                            <img class="w-4" loading="lazy" src="{{ STATIC_URL }}img/icons/phone.png" alt="">
+                            {{ page.phone }}
+                        </a>
+                    {% endif %}
+                    {% if page.address %}
+                        <a {% if page.google_maps_address %} href="{{ page.google_maps_address }}"
+                                                             target="_blank" {% endif %} class="button">
+                            <img class="w-4" loading="lazy" src="{{ STATIC_URL }}img/icons/location.png" alt="">
+                            {{ page.address|linebreaksbr }}
+                        </a>
+                    {% endif %}
+                    {% if page.messenger_link %}
+                        <a href="{{ page.messenger_link }}" class="button">
+                            <img class="w-4" loading="lazy" src="{{ STATIC_URL }}img/icons/chat.png" alt="">
+                            Chat on Messenger
+                        </a>
+                    {% endif %}
+                    {% if page.website %}
+                        <a href="{{ page.website }}" target="_blank" class="button">
+                            <img class="w-4" loading="lazy" src="{{ STATIC_URL }}img/icons/website.png" alt="">
+                            {{ page.website }}
+                        </a>
+                        </div>
+                    {% endif %}
+            </div>
+        </div>
+        <!-- #endregion HEADER CONTENT -->
+    </header>
+    <!-- #endregion HEADER -->
+{% endblock %}

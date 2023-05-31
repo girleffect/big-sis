@@ -1,0 +1,22 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="flex  hover:bg-neutral-100 w-full rounded mr-auto pr-6 pb-2 transition-colors duration-300">
+    <a href="{% pageurl post %}" class="block pr-4  w-20 md:w-[80px] lg:w-20 flex-shrink-0">
+        {% if post.image %}
+            <img class=" mt-1 rounded " loading="lazy" src="{% image_url post.image 'fill-150x150|format-jpeg' %}" alt="">
+        {% endif %}
+    </a>
+
+    <div class="flex flex-col flex-grow-1">
+        <a {% if not is_category %}href="{% pageurl post.get_parent %}"{% endif %}
+           class="text-xs md:text-2xs  uppercase text-primary-500 font-bold tracking-widest mt-1 hover:text-primary-700">
+            {{ post.get_parent.title }}
+        </a>
+        <a href="{% pageurl post %}" class="flex-grow">
+                                   <h3 class="text-h5 font-medium md:text-sm lg:text-h5 mt-1">
+                {{ post.title }}
+
+            </h3>
+        </a>
+    </div>
+</div>

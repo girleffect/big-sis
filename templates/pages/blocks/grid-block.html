@@ -1,0 +1,12 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="md:grid md:grid-cols-3 gap-8 lg:pl-12 ">
+    {% for item in value.items %}
+    <div class="flex max-md:gap-6 md:flex-col max-md:items-center max-md:mb-4">
+        <img class="w-16 md:mb-3 md:w-32" loading="lazy" src="{% image_url item.image  'fill-250x250' %}" alt="">
+        <p class="text-sm font-medium">
+            {{ item.text|linebreaksbr }}
+        </p>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,21 @@
+<!-- #region TIMELINE -->
+<section class="bg-primary-500 py-16 lg:py-24 text-white">
+    <div class="container text-center flex flex-col items-center group">
+        <h2 class="text-h3 md:text-h2 mb-9 font-bold">{{ value.title }}</h2>
+        {% for item in value.items %}
+            <!-- #region TIMELINE ELEMENT -->
+            <div class="max-w-[240px] flex flex-col items-center">
+                <p class="text-h4 underline text-yellow mb-2 font-medium">{{ item.year }}</p>
+                <p class="text-base">
+                    {{ item.description|linebreaksbr }}
+                </p>
+                <!-- TODO: Remove this for last iteration of the loop: -->
+                
+                <div class="w-1 h-10 border-l-2 border-white border-dotted opacity-40 mt-2 mb-2 {% if forloop.last %} hidden {% endif %}"></div>
+                <!--  -->
+            </div>
+            <!-- #endregion TIMELINE ELEMENT -->
+        {% endfor %}
+    </div>
+</section>
+<!-- #endregion TIMELINE -->
