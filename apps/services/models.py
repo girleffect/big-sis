@@ -21,7 +21,8 @@ class ServiceFinderPage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name='+',
+        help_text='Recommended aspect ratio 16:9 and image dimensions 320x180'
     )
     seo_image = models.ForeignKey(
         settings.WAGTAILIMAGES_IMAGE_MODEL,

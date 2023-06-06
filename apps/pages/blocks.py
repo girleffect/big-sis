@@ -49,7 +49,7 @@ class KeyFigureBlock(blocks.StructBlock):
 
 class TestimonialBlock(blocks.StructBlock):
     name = blocks.CharBlock(required=False)
-    photo = ImageChooserBlock(required=False)
+    photo = ImageChooserBlock(required=False,help_text="Recommended aspect ratio: 1:1 and image dimensions: 100x100")
     description = blocks.TextBlock()
 
     class Meta:
