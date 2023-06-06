@@ -19,8 +19,8 @@ templates/          - Application html files/templates
 ├── includes/       - Footer and main navigation template files
 ├── pages/          - Pages app template files
 ├── sevices/        - Services app template files
-├── 404.html        - 404 Template (currenty empty)
-├── 500.html        - 500 Template (currenty empty)
+├── 404.html        - 404 Template
+├── 500.html        - 500 Template
 ├── base.html       - Base Template
 ├── robots.txt      - Robots.txt file
 ├── seo.html        - Template for SEO meta tags
