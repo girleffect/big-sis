@@ -69,7 +69,7 @@ if STAGE == 'local':
 
 
 # Wagtail settings
-WAGTAILADMIN_BASE_URL = 'http://example.com'
+WAGTAILADMIN_BASE_URL = 'http://bigsis.co.za'
 WAGTAIL_ALLOW_UNICODE_SLUGS = False
 WAGTAIL_ENABLE_UPDATE_CHECK = False
 WAGTAIL_ENABLE_WHATS_NEW_BANNER = False
