@@ -1,31 +1,51 @@
 # BIG SIS website – Supplementary Admin Guide
 ## Table of Contents
 1. [Page types](#page-types)
+   
     1.1 [Home page](#home-page)
+    
     1.2 [About page](#about-page)
+    
     1.3 [Content page](#content-page)
+    
     1.4 [Service finder page](#service-finder-page)
+    
     1.5 [Service page](#service-page)
+    
     1.6 [Blog index page](#blog-index-page)
+    
     1.7 [Blog category page](#blog-category-page)
+    
     1.8 [Post page](#post-page)
 
 2. [Page Building Sections & Blocks](#page-building-sections--blocks)
+    
     2.1 [Featured blog post section]()
+    
     2.2 [Columns section](#columns-section-home-page-content-pages)
+    
     2.3 [Social media posts section](#social-media-posts-section-home-page-blog-index-page)
+    
     2.4 [Latest Blog Posts Section](#latest-blog-posts-section-home-page)
+   
     2.5 [Time Line Section](#time-line-section-about-page)
+    
     2.6 [Faq Section](#faq-section-about-page)
+   
     2.7 [Key Figures And Testimonials Section](#key-figures-and-testimonials-section-about-page)
+    
     2.8 [Details Section](#details-section-service-pages-post-pages)
 
 3. [Editing Services & Service Locations](#editing-services--service-locations)
+    
     3.1 [Service Types](#service-types)
+    
     3.2 [Service Locations](#service-locations)
 
 3. [Editing Global Settings – Scripts & Footer](#editing-global-settings)
+   
     3.1 [Scripts](#scripts)
+    
     3.2 [Footer](#footer)
 
 4. [Moya App](#moya-app)
