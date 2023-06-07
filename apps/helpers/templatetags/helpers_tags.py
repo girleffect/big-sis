@@ -1,4 +1,5 @@
 from wagtail.models import Page
+from wagtail.models import Site
 from django import template
 from django.conf import settings
 from apps.pages.models import HomePage
@@ -14,8 +15,9 @@ def get_stage():
     return stage
 
 @register.simple_tag()
-def get_in_menu_pages():
-    homepage = Page.objects.exact_type(HomePage).first()
+def get_in_menu_pages(request):
+    site = Site.find_for_request(request)
+    homepage = HomePage.objects.live().filter(sites_rooted_here=site).first()
     if homepage:
         pages = Page.objects.live().in_menu().child_of(homepage)
         return pages

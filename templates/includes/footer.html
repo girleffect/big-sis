@@ -2,6 +2,7 @@
 {% get_settings %}
 <!-- #region FOOTER -->
 {% with global_settings=settings.helpers.GlobalSettings %}
+    {% if global_settings.background_image or global_settings.text or global_settings.email or global_settings.sitemap or global_settings.facebook_url or global_settings.tiktok_url %}
     <footer class="bg-dark bg-cover text-white text-center mt-auto"
             {% if global_settings.background_image %}{% for block in global_settings.background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"
             {% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"
@@ -54,7 +55,7 @@
             </section>
         {% endif %}
     </footer>
-{% endwith %}
+
 <!-- #endregion FOOTER -->
 
 
@@ -83,3 +84,5 @@
         </defs>
     </svg>
 </div>
+{% endif %}
+{% endwith %}

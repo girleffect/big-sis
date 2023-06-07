@@ -24,7 +24,7 @@ class CustomRendition(AbstractRendition):
 
 
 class HomePage(Page):
-    max_count = 1
+    max_count = 2
     parent_page_types = ['wagtailcore.Page']
     template_name = 'pages/home_page.html'
     header_title = models.CharField(max_length=255, blank=True)
