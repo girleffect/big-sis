@@ -19,7 +19,7 @@ urlpatterns = (
             re_path(r'^images/([^/]*)/(\d*)/([^/]*)/[^/]*$', ServeView.as_view(action='redirect'),
                     name='wagtailimages_serve'),
             path('api/', include(api_urls)),
-            path('', include('social_django.urls', namespace='social'))
+            #path('', include('social_django.urls', namespace='social'))
         ]
         + browser_reload_patterns
         + aldryn_addons.urls.patterns()

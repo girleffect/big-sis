@@ -51,7 +51,7 @@ INSTALLED_APPS.extend(
         'tailwind',
         'apps.theme',
         'django_browser_reload',
-        'social_django',
+        #'social_django',
         'apps.pages',
         'apps.services',
         'apps.blog',
@@ -94,20 +94,20 @@ WAGTAILADMIN_RICH_TEXT_EDITORS = {
 }
 
 # Social Auth settings
-SOCIAL_AUTH_JSONFIELD_ENABLED = True
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', '')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', '')
-
-LOGIN_URL = '/login/google-oauth2/'
-
-LOGIN_REDIRECT_URL = '/admin/'
-LOGOUT_REDIRECT_URL = '/'
+# SOCIAL_AUTH_JSONFIELD_ENABLED = True
+# SOCIAL_AUTH_URL_NAMESPACE = 'social'
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.google.GoogleOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
+#
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', '')
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', '')
+#
+# LOGIN_URL = '/login/google-oauth2/'
+#
+# LOGIN_REDIRECT_URL = '/admin/'
+# LOGOUT_REDIRECT_URL = '/'
 
 
 # Tailwind settings
