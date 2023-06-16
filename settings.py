@@ -51,7 +51,7 @@ INSTALLED_APPS.extend(
         'tailwind',
         'apps.theme',
         'django_browser_reload',
-        #'social_django',
+        'social_django',
         'apps.pages',
         'apps.services',
         'apps.blog',
