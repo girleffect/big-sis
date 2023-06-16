@@ -33,6 +33,11 @@ class GlobalSettings(BaseSetting,ClusterableModel):
             'Links': {'min_num': 0, 'max_num': 1},
         },
     )
+    social_auth_allowed_emails = StreamField(
+        [
+            ("email_address", blocks.EmailBlock()),
+        ], use_json_field=False, blank=True,
+    )
     scripts_panel = [
         MultiFieldPanel(
             [
@@ -60,10 +65,21 @@ class GlobalSettings(BaseSetting,ClusterableModel):
 
 
     ]
+    social_auth_panel = [
+        MultiFieldPanel(
+            [
+                FieldPanel('social_auth_allowed_emails'),
+            ],
+            heading="Google sign up",
+            classname="collapsible"
+        ),
 
+
+    ]
     edit_handler = TabbedInterface([
         ObjectList(scripts_panel, heading='Scripts'),
         ObjectList(footer_panel, heading='Footer'),
+        ObjectList(social_auth_panel, heading='Social Auth'),
     ])
 
     class Meta:
