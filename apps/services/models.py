@@ -231,4 +231,4 @@ class ServicePage(Page):
 class ServicePageAdditionalItem(Orderable):
     page = ParentalKey(ServicePage, on_delete=models.CASCADE, related_name='additional_items')
     label = models.TextField()
-    content = models.TextField()
+    url = models.URLField(blank=True)
