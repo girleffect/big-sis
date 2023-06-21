@@ -3,10 +3,10 @@ from django.conf import settings
 from django.utils.text import slugify
 from django import forms
 from django.shortcuts import render
-from wagtail.models import Page
+from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, TabbedInterface, ObjectList, MultiFieldPanel
-from modelcluster.fields import ParentalManyToManyField
+from wagtail.admin.panels import FieldPanel, TabbedInterface, ObjectList, MultiFieldPanel, InlinePanel
+from modelcluster.fields import ParentalManyToManyField, ParentalKey
 
 # The service finder page.This page is used for listing and filtering all the service pages(Clinics)
 class ServiceFinderPage(Page):
@@ -195,7 +195,15 @@ class ServicePage(Page):
 
             ],
             heading="Details Section",
-            classname="collapsible"
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                InlinePanel('additional_items', label="Additional Item", )
+
+            ],
+            heading="Additional Items Section",
+            classname="collapsible collapsed"
         ),
     ]
     promote_panels = [
@@ -219,3 +227,8 @@ class ServicePage(Page):
 
     class Meta:
         verbose_name = "Service page"
+
+class ServicePageAdditionalItem(Orderable):
+    page = ParentalKey(ServicePage, on_delete=models.CASCADE, related_name='additional_items')
+    label = models.TextField()
+    content = models.TextField()
