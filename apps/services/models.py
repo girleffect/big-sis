@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django import forms
 from django.shortcuts import render
 from wagtail.models import Page
+from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, TabbedInterface, ObjectList, MultiFieldPanel
 from modelcluster.fields import ParentalManyToManyField
 
@@ -159,7 +160,7 @@ class ServicePage(Page):
     subpage_types = []
     template_name = 'services/service_page.html'
     preview_text = models.TextField(blank=True,help_text='If populated the text will be displayed on the service finder page.If omitted the first 50 words of the below text field will be displayed.')
-    text = models.TextField(blank=True)
+    text = RichTextField(blank=True)
     price = models.CharField(max_length=255,blank=True)
     phone = models.CharField(max_length=255,blank=True)
     address = models.TextField(blank=True)
