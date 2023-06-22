@@ -42,14 +42,19 @@
     
     3.2 [Service Locations](#service-locations)
 
-3. [Editing Global Settings – Scripts & Footer](#editing-global-settings)
+4. [Editing Global Settings – Scripts & Footer](#editing-global-settings)
    
-    3.1 [Scripts](#scripts)
+    4.1 [Scripts](#scripts)
     
-    3.2 [Footer](#footer)
+    4.2 [Footer](#footer)
 
-4. [Moya App](#moya-app)
-5. [Google Login](#google-login)
+5. [Moya App](#moya-app)
+   
+6. [Adding Admin Users](#adding-admin-users)
+
+   6.1 [Google Login](#google-login)
+   
+   6.2 [Enabling Google Login for Admin Users](#enabling-google-login-for-admin-users)
     
 ## Page types
 The website consists of a variety of page types. Each page type has different properties.<br>
@@ -246,11 +251,28 @@ The website can recognise the traffic that is coming from the Moya Mobile Applic
 ### Controlling the content
 While creating or modifying a page you have the option to show or hide certain sections in the Moya App by checking/unchecking the "Hide Section on Moya App" checkbox, that is available for each section. This feature allows you to customize the content that is being delivered when accessign the website through the Moya Application and simplify the website. 
 
+
+### Adding Admin Users
+
+Clicking on the option Settings will expand your Sidebar. From the expanded Sidebar you can select the option Users. Through the Users option you can add new Admin Panel Users or edit/remove any existing users. Click Add a user and fill in the details of the new user. Once you fill in the details of the new user you can click on the Roles button and select the permissions of the new user (for full access administrators you can tick the Administrator checkbox). 
+
+![img_23.png](img_23.png)
+
+![img_24.png](img_24.png)
+
+![img_25.png](img_25.png)
+
 ## Google Login
-You can use your Girl Effect to login in the Wagtail Administration panel by following this link: <domain>/login/google-oauth2/
+You can use your Google account to login in the Wagtail Administration panel by following this link: <domain>/login/google-oauth2/
 In order to set this up, an application on your Google Workspace account needs to be created and the following data need to be added in the Divio Environment variables: 
 - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
 - SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET 
 
+## Enabling Google Login for Admin Users
+Admin users also have the option to login to the admin panel using their Google Account. To enable Google login for a user, you need to select Settings and then Global Settings from your menu. Click on the Social Auth tab, add the email address of the user you wish to enable Google login for and click Save. Make sure that the email address you added here is the same email address you entered while creating the specific admin user. 
 
+![img_26.png](img_26.png)
 
+Once you enable Google login you can login using your Google credentials and click on the Google button to login.   
+
+![img_27.png](img_27.png)
