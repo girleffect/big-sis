@@ -89,11 +89,11 @@ class ServiceFinderPage(Page):
                     services = ServicePage.objects.live().filter(
                         service_type__in=service_types).distinct()
                 else:
-                    services = ServicePage.objects.live()[:6]
+                    services = ServicePage.objects.live()
                 context['services'] = services
         else:
             form = ServiceFinderForm()
-            context['services'] = ServicePage.objects.live()[:6]
+            context['services'] = ServicePage.objects.live()
         context['form'] = form
         return render(
             request,
