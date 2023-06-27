@@ -87,14 +87,14 @@
         <!-- #region SERVICE FILTERS -->
         {% if field.field.widget.input_type == 'checkbox' %}
         <label class="text-neutral-500 block" for="{{ field.id_for_label }}">{{ field.label }}</label>
-        <div class="flex  gap-5 lg:gap-x-10 my-2 flex-wrap ">
+        <div class="flex gap-y-3 gap-x-5 md:gap-y-4 md:gap-x-7 my-2 flex-wrap ">
             {% for pk, choice in field.field.widget.choices %}
-            <div class="flex gap-2 items-center">
+            <div class="flex gap-2 items-center pr-2">
                 <input class="rounded bg-transparent" {% if pk|slugify in field.data %}
                        checked {% endif %} id="id_{{ field.name }}_{{ forloop.counter0 }}"
                        name="{{ field.name }}"
                        type="checkbox" value="{{ pk }}" />
-                <label for="id_{{ field.name }}_{{ forloop.counter0 }}">{{ choice }}</label>
+                <label for="id_{{ field.name }}_{{ forloop.counter0 }}" >{{ choice }}</label>
             </div>
             {% endfor %}
         </div>

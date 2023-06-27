@@ -48,7 +48,7 @@
                              {% endif %}
                     </a>
                 {% endif %}
-                {% if page.moya_link %}
+                {% if page.moya_link and not moya_flag %}
                     <a href="{{ page.moya_link }}" target="_blank" class="hover:scale-105 transition-transform"><img class='mx-5 w-11 '
                             src="{{ STATIC_URL }}img/icons/app.png" alt="">
                         {% if page.moya_link_text %}
