@@ -49,11 +49,11 @@ class HomePage(Page):
             'Document': {'min_num': 0, 'max_num': 1},
         },
     )
-    whatsapp_link = models.URLField(blank=True)
+    whatsapp_link = models.CharField(max_length=255,blank=True)
     whatsapp_link_text = models.TextField(blank=True)
-    messenger_link = models.URLField(blank=True)
+    messenger_link = models.CharField(max_length=255,blank=True)
     messenger_link_text = models.TextField(blank=True)
-    moya_link = models.URLField(blank=True)
+    moya_link = models.CharField(max_length=255,blank=True)
     moya_link_text = models.TextField(blank=True)
     seo_image = models.ForeignKey(
         settings.WAGTAILIMAGES_IMAGE_MODEL,
