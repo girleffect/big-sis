@@ -1276,6 +1276,18 @@ select {
   top: 22px;
 }
 
+.\!left-0 {
+  left: 0px !important;
+}
+
+.\!right-0 {
+  right: 0px !important;
+}
+
+.\!top-10 {
+  top: 2.5rem !important;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1583,6 +1595,10 @@ select {
   width: 100%;
 }
 
+.w-14 {
+  width: 3.5rem;
+}
+
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -1760,6 +1776,10 @@ select {
 
 .gap-9 {
   gap: 2.25rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .gap-x-5 {
@@ -3064,6 +3084,11 @@ section.bg-secondary + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-p
   .lg\:gap-x-7 {
     -moz-column-gap: 1.75rem;
          column-gap: 1.75rem;
+  }
+
+  .lg\:gap-x-10 {
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
   }
 
   .lg\:p-2 {
