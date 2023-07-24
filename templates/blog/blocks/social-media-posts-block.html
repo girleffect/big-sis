@@ -4,7 +4,7 @@
     <div class="container  md:px-6">
         <h2 class="text-h2 font-bold mb-3">{{ value.title }}</h2>
         <div class="swiper social-posts-slider">
-            <ul class="{% if not moya_flag %} swiper-wrapper justify-center {% elif moya_flag %}grid grid-cols-2 place-content-center md:grid-cols-3 lg:grid-cols-5 gap-4{% endif %}">
+            <ul class="{% if not moya_flag %} swiper-wrapper  {% elif moya_flag %}grid grid-cols-2 place-content-center md:grid-cols-3 lg:grid-cols-5 gap-4{% endif %}">
 
                 {% for post in value.posts %}
                 <div class="swiper-slide relative">
@@ -83,42 +83,70 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         // sliderArrows.classList.remove('hidden');
-        const swiper = new Swiper('.social-posts-slider', {
-            // Optional parameters
-            loop: true,
-            slidesPerView: 1.5,
-            centeredSlides: true,
-            spaceBetween: 20,
-            initialSlide: 2,
-            // centeredSlides:true,
+        console.log(document.querySelectorAll(".social-posts-slider .swiper-slide").length);
+        if (document.querySelectorAll(".social-posts-slider .swiper-slide").length == 1) {
+            const swiper = new Swiper('.social-posts-slider', {
+                // Optional parameters
+                // loop: true,
+                initialSlide: 0,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                 
+                           breakpoints: {
+                    // // when window width is >= 320px
+                    // 0: {
+                    //     slidesPerView:1.5,
+                    //     spaceBetween: 20
 
+                    //     },
+                    //     // when window width is >= 480px
 
-            breakpoints: {
-                // // when window width is >= 320px
-                // 0: {
-                //     slidesPerView:1.5,
-                //     spaceBetween: 20
+                    748: {
+                        slidesPerView: 3,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-                //     },
-                //     // when window width is >= 480px
+                    },
+                    1200: {
+                        slidesPerView: 5,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-                748: {
-                    slidesPerView: 3,
-                    loop: false,
-                    centeredSlides: false,
-                    spaceBetween: 24
+                    },
 
-                },
-                1200: {
-                    slidesPerView: 5,
-                    loop: false,
-                    centeredSlides: false,
-                    spaceBetween: 24
+                }
+            });}
+            else{
+            const swiper = new Swiper('.social-posts-slider', {
+                // Optional parameters
+                // loop: true,
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+                centeredSlides: true,
+                freeMode:true,
+                // loopedSlides:3,
+                breakpoints: {
+                
+                    748: {
+                        slidesPerView: 3,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-                },
+                    },
+                    1200: {
+                        slidesPerView: 5,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-            }
-        });
+                    },
+
+                }
+            });
+        }
     });
 
 </script>

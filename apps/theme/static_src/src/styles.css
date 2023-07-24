@@ -189,3 +189,13 @@ section.bg-secondary + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-p
 section.bg-secondary + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-500 + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-600 + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-pattern + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
     @apply bg-white;
 } */
+
+
+
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
