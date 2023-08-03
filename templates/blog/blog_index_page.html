@@ -31,10 +31,10 @@
             </div>
             {% endif %}
 
-            <!-- Slider main container -->
+            
             <div class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="gap-2 mt-4 mb-8 {% if not moya_flag %}inline-flex overflow-none {% elif moya_flag %} flex flex-wrap {% endif %} py-1 relative" id="filter-wrapper">
+
+                <div class="gapy-2 mt-4 mb-8 pr-6 {% if not moya_flag %} inline-flex overflow-none {% elif moya_flag %} flex flex-wrap {% endif %} py-1 relative" id="filter-wrapper">
 
                     {% if is_category %}
                     <a href="{% pageurl page.get_parent %}"
@@ -48,10 +48,10 @@
 
                     {% else %}
                     <a href="{% pageurl page %}"
-                       class="swiper-slide !w-auto {% if not moya_flag %}  whitespace-nowrap {% endif %} rounded-full px-4 py-2 border border-primary-500 bg-primary-500 text-white">All</a>
+                       class="swiper-slide !w-auto mr-2 {% if not moya_flag %}  whitespace-nowrap {% endif %} rounded-full px-4 py-2 border border-primary-500 bg-primary-500 text-white">All</a>
                     {% for child_page in page.get_children.live %}
                     <a href="{% pageurl child_page %}"
-                       class="swiper-slide !w-auto {% if not moya_flag %}  whitespace-nowrap {% endif %} rounded-full px-4 py-2 border border-primary-500 text-primary-500 hover:text-white hover:bg-primary-500">
+                       class="swiper-slide !w-auto mr-2 {% if not moya_flag %}  whitespace-nowrap {% endif %} rounded-full px-4 py-2 border border-primary-500 text-primary-500 hover:text-white hover:bg-primary-500">
                         {{ child_page.title }}</a>
                     {% endfor %}
                     {% endif %}
@@ -167,6 +167,11 @@
                 // Optional parameters
                 direction: 'horizontal',
                 loop: false,
+                loopFillGroupWithBlank: false,
+      
+                slidesPerView:'auto',
+                slidesPerGroupAuto:true,
+
                 
                 // If we need pagination
                 pagination: {
