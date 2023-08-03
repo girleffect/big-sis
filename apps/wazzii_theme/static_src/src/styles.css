@@ -198,6 +198,7 @@ section.bg-secondary + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-p
   details > summary::-webkit-details-marker {
     display: none;
   }
+  
   h1,h2,h3,h4,h5,h6,p,a{
       color:red;
   }
