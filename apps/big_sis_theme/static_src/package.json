@@ -5,9 +5,9 @@
   "scripts": {
     "start": "npm run dev",
     "build": "npm run build:clean && npm run build:tailwind",
-    "build:clean": "rimraf ../static/css/big_sis_theme/dist",
-    "build:tailwind": "cross-env NODE_ENV=production tailwindcss --postcss -i ./src/styles.css -o ../static/css/big_sis_theme/dist/styles.css --minify",
-    "dev": "cross-env NODE_ENV=development tailwindcss --postcss -i ./src/styles.css -o ../static/css/big_sis_theme/dist/styles.css -w",
+    "build:clean": "rimraf ../assets/css/big_sis_theme/dist",
+    "build:tailwind": "cross-env NODE_ENV=production tailwindcss --postcss -i ./src/styles.css -o ../assets/css/big_sis_theme/dist/styles.css --minify",
+    "dev": "cross-env NODE_ENV=development tailwindcss --postcss -i ./src/styles.css -o ../assets/css/big_sis_theme/dist/styles.css -w",
     "tailwindcss": "node ./node_modules/tailwindcss/lib/cli.js"
   },
   "keywords": [],
