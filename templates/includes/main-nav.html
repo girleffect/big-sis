@@ -4,10 +4,10 @@
     <div class="container flex space-around md:py-5 py-4 justify-between border-b  max-md:flex-col {% if darkbg %}border-white {% else %}border-neutral-300{% endif %}">
         <a href="/">
             {% if darkbg %}
-                <img class="h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3"  :class="{'hidden' : stickyMenu }"   src="{{STATIC_URL}}img/logobigsis.png" alt="Big Sis Logo">
-                <img class="h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3"  :class="{'hidden' : !stickyMenu }"   src="{{STATIC_URL}}img/logobigsis-dark.png" alt="Big Sis Logo">
+                <img class="nav-logo"  :class="{'hidden' : stickyMenu }"   src="{{STATIC_URL}}img/logo.png" alt="Big Sis Logo">
+                <img class="nav-logo"  :class="{'hidden' : !stickyMenu }"   src="{{STATIC_URL}}img/logo-dark.png" alt="Big Sis Logo">
             {% else %}
-                <img class="h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3"  src="{{STATIC_URL}}img/logobigsis-dark.png" alt="Bis Sis Logo">
+                <img class="nav-logo"  src="{{STATIC_URL}}img/logo-dark.png" alt="Bis Sis Logo">
             {% endif %}
         </a>
         <nav class="flex items-center max-md:justify-center">

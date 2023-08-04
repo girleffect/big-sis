@@ -1,23 +1,20 @@
+@import url("https://use.typekit.net/anu8qwa.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Custom Fonts */
 @font-face {
-    font-family: fedra-sans;
-    src: url(../../fonts/FedraSansDevanagariB-Book.ttf);
-    font-weight: 400;
+    font-family: bn-dime;
+    src: url(../../../fonts/bn-dime-display.otf);
+    font-weight: 800;
 }
-@font-face {
-    font-family: fedra-sans;
-    src: url(../../fonts/FedraSansDevanagariB-Demi.ttf);
-    font-weight: 500;
-}
-@font-face {
-    font-family: fedra-sans;
-    src: url(../../fonts/FedraSansDevanagariB-Bold.ttf);
-    font-weight: 700;
-}
+/* @font-face {
+    font-family: work-sans;
+    src: url(../../../fonts/work-sans_semibold.ttf);
+    font-weight: 600;
+} */
 
 /* Debugging Elements */
 .debug-screens::before {
@@ -43,7 +40,6 @@ html {
     font-size: 23px;
     line-height: 31px;
 }
-
 
 @media screen(md) {
     .text-header-h1 {
@@ -88,8 +84,8 @@ html {
 .prose a {
     @apply text-primary-600;
 }
-.prose iframe{
-    width:100%;
+.prose iframe {
+    width: 100%;
 }
 .prose p,
 .prose ol,
@@ -99,6 +95,20 @@ html {
 .prose ol li,
 .prose ul li {
     @apply mb-4;
+}
+
+.text-h1,
+.text-h2,
+.text-header-h1,
+.page-header {
+    @apply font-header  tracking-wide pb-1;
+}
+
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6 {
+    @apply font-bold;
 }
 
 .prose b {
@@ -130,7 +140,9 @@ html {
 
 /* Button */
 .button {
-    @apply bg-primary-600 px-4 py-3 rounded text-white font-medium inline-block mt-5 inline-flex items-center gap-2 hover:bg-primary-700 transition-colors duration-100 ease-in;
+    @apply bg-primary-500 px-4 py-3 rounded text-white font-medium
+     inline-block mt-5 inline-flex items-center gap-2 
+     hover:bg-cyan hover:text-black transition-colors duration-100 ease-in;
 }
 
 /* Animations */
@@ -177,28 +189,59 @@ html {
 
 /* Addressing white space between two white sections */
 /* every second section without a background, that follows a section without a background, gets a light gray colour */
-section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern):not(:nth-of-type(2n)) {
+section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern)
+    + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern):not(:nth-of-type(2n)) {
     @apply bg-neutral-100;
 }
 
-section.bg-secondary + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-500 + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-600 + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-pattern + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
+section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-primary-500 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-primary-600 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-pattern + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
     @apply bg-white;
 }
 
 /* excluding 
-section.bg-secondary + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-500 + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-600 + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-pattern + section:not(.bg-secondary):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
+section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-500 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-600 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-pattern + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
     @apply bg-white;
 } */
 
-
-
-  details > summary {
+details > summary {
     list-style: none;
-  }
-  details > summary::-webkit-details-marker {
+}
+details > summary::-webkit-details-marker {
     display: none;
-  }
-  
-  h1,h2,h3,h4,h5,h6,p,a{
-      color:red;
-  }
+}
+
+.nav-logo {
+    @apply h-10  md:h-10 max-md:mx-auto max-md:mb-3;
+}
+
+.home-header {
+    @apply text-white;
+    background-size: 500px;
+}
+
+.page-header {
+    @apply text-orange uppercase;
+}
+
+.bg-dark-section h1,
+.bg-dark-section h2,
+.bg-dark-section h3,
+.bg-dark-section .text-h1,
+.bg-dark-section .text-h2,
+.bg-dark-section .text-h3 {
+    @apply text-yellow;
+}
+
+.footer {
+    background-size: 500px;
+}
+.subfooter{
+    @apply bg-primary-500;
+}
+
+.timeline {
+    @apply bg-primary-500;
+}

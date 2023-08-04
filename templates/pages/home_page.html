@@ -4,16 +4,16 @@
 {% block content %}
 <!-- #region HEADER -->
 
-<header class="overflow-hidden bg-cover bg-dark text-white md:min-h-screen md:flex md:flex-col md:align-center md:justify-center" {% if page.header_background_image %}{% for block in page.header_background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"{% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"{% endif %}{% endfor %}{% endif %}>
+<header class="home-header overflow-hidden md:min-h-screen md:flex md:flex-col md:align-center md:justify-center" {% if page.header_background_image %}{% for block in page.header_background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"{% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"{% endif %}{% endfor %}{% endif %}>
     {% include 'includes/main-nav.html' with darkbg='true' %}
     <!-- #region HEADER CONTENT -->
     <div class="container grid grid-cols-1 lg:grid-cols-12  items-center py-10 md:py-16 my-auto md:flex-row">
         {% if page.header_image %}
             {% for block in page.header_image %}
                 {% if block.block_type == 'Image' %}
-                    <img class="lg:col-span-5 lg:order-2 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto"  src="{% image_url block.value 'fill-525x525' %}" alt="">
+                    <img class="lg:col-span-5 lg:order-2 max-lg:mb-5 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto"  src="{% image_url block.value 'fill-525x525' %}" alt="">
                 {% elif block.block_type == 'Document' %}
-                    <img class="lg:col-span-5 lg:order-2 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto"  src="{{ block.value.file.url }}" alt="">
+                    <img class="lg:col-span-5 lg:order-2 max-lg:mb-5 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto"  src="{{ block.value.file.url }}" alt="">
                 {% endif %}
             {% endfor %}
         {% endif %}

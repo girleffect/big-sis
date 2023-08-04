@@ -39,7 +39,7 @@
 </head>
 
 
-<body class="min-h-screen flex flex-col {% if stage == 'local' %}debug-screens{% endif %}" x-data="{stickyMenu: false}" :class="{'!pt-16' : stickyMenu }" @scroll.window="stickyMenu = (window.pageYOffset > 100) ? true : false">
+<body class="min-h-screen flex flex-col  {% if stage == 'local' %}debug-screens{% endif %}" x-data="{stickyMenu: false}" :class="{'!pt-16' : stickyMenu }" @scroll.window="stickyMenu = (window.pageYOffset > 100) ? true : false">
     {% wagtailuserbar 'bottom-left' %}
     {% if settings.helpers.GlobalSettings %}
         {% with global_settings=settings.helpers.GlobalSettings %}

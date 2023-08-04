@@ -42,7 +42,7 @@ module.exports = {
             'primary-500': '#4444aa',
             'primary-600': '#3C3C9F',
             'primary-700': '#2D0062',
-            'secondary': '#202020',
+            'dark-section': '#202020',
             'yellow': '#E8BF27',
           },
       
