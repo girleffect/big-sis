@@ -130,14 +130,18 @@ if STAGE == 'local':
 else:
     TAILWIND_DEV_MODE = False
 TAILWIND_APP_NAME = os.environ.get('TAILWIND_APP_NAME','apps.big_sis_theme')
+print(TAILWIND_APP_NAME)
 INSTALLED_APPS.append(TAILWIND_APP_NAME)
+print(INSTALLED_APPS)
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 TAILWIND_FOLDER_NAME =TAILWIND_APP_NAME.split('.',1)[1]
+print(TAILWIND_FOLDER_NAME)
 TAILWIND_CSS_PATH = f'css/{TAILWIND_FOLDER_NAME}/dist/styles.css'
+print(TAILWIND_CSS_PATH)
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'pa_apps',TAILWIND_FOLDER_NAME, 'static/'),
+    os.path.join(BASE_DIR,'apps',TAILWIND_FOLDER_NAME, 'static/'),
 ]
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
