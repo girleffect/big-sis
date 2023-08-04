@@ -137,7 +137,7 @@ INTERNAL_IPS = [
 TAILWIND_FOLDER_NAME =TAILWIND_APP_NAME.split('.',1)[1]
 TAILWIND_CSS_PATH = f'css/{TAILWIND_FOLDER_NAME}/dist/styles.css'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'apps',TAILWIND_FOLDER_NAME, 'assets/'),
+    os.path.join(BASE_DIR,'apps',TAILWIND_FOLDER_NAME, 'static/'),
 ]
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
