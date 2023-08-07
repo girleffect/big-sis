@@ -203,6 +203,11 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   .nav-logo{
     @apply h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3;
   }
+  .nav-items a{
+    @apply  mx-2 md:mx-3;
+}
+
+
   .home-header{
     @apply bg-dark text-white bg-cover ;
   }

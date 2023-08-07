@@ -140,7 +140,7 @@ html {
 
 /* Button */
 .button {
-    @apply bg-primary-500 px-4 py-3 rounded text-white font-medium
+    @apply bg-primary-500 px-4 py-3 rounded text-yellow font-medium
      inline-block mt-5 inline-flex items-center gap-2 
      hover:bg-cyan hover:text-black transition-colors duration-100 ease-in;
 }
@@ -214,7 +214,11 @@ details > summary::-webkit-details-marker {
 }
 
 .nav-logo {
-    @apply h-10  md:h-10 max-md:mx-auto max-md:mb-3;
+    @apply h-10 md:h-10 max-md:mx-auto max-md:mb-3;
+}
+
+.nav-items a{
+    @apply font-header tracking-wider mx-1 md:mx-2.5;
 }
 
 .home-header {
@@ -239,7 +243,7 @@ details > summary::-webkit-details-marker {
     background-size: 500px;
 }
 .subfooter{
-    @apply bg-primary-500;
+    @apply bg-yellow text-black;
 }
 
 .timeline {

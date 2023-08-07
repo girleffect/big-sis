@@ -20,7 +20,7 @@
         </div>
         {% if page.header_youtube_video_id %}
         <div class="col-span-2 lg:col-span-1 mb-3 lg:mx-auto lg:mt-auto relative w-full">
-        
+
             {% if not moya_flag %}
             <div>
                 <div x-show="!play" class="absolute top-0 left-0 w-full h-full z-10" x-data="{ play: false }" @click="play= 1" x-init="$watch('play', (value) => { if (value) { player.playVideo(); }})">
@@ -55,9 +55,9 @@
             {% elif moya_flag %}
 
             <a href="https://www.youtube.com/watch?v={{ page.header_youtube_video_id }}" target="_blank">
-              
-            {% image page.header_video_poster fill-320x180 format-jpeg as image %}
-            <img class="w-full" src="{{ image.url }}" alt="">
+
+                {% image page.header_video_poster fill-320x180 format-jpeg as image %}
+                <img class="w-full" src="{{ image.url }}" alt="">
                 <div id="play_button" x-transition class="scale-75 lg:scale-100 z-10 w-20 h-20 rounded-full bg-primary-500 absolute top-1/2 left-1/2 !-translate-x-1/2 !-translate-y-1/2 flex items-center justify-center pointer-events-none">
                     <svg width="25" height="39" viewBox="0 0 25 39" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +94,7 @@
                        checked {% endif %} id="id_{{ field.name }}_{{ forloop.counter0 }}"
                        name="{{ field.name }}"
                        type="checkbox" value="{{ pk }}" />
-                <label for="id_{{ field.name }}_{{ forloop.counter0 }}" >{{ choice }}</label>
+                <label for="id_{{ field.name }}_{{ forloop.counter0 }}">{{ choice }}</label>
             </div>
             {% endfor %}
         </div>
@@ -148,12 +148,17 @@
             <div class=" px-4 pb-4 mt-auto rounded">
                 {% if service_page.phone %}
                 <a class="button !mt-0 w-full" href="tel:{{ service_page.phone }}">
-                    <img class="w-4" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/phone.png" alt="">
+                    <svg class="w-[23px]" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.75 15.9999C5.54688 15.9999 0.5 10.9531 0.5 4.74995C0.502346 3.68593 0.890995 2.65896 1.59369 1.85999C2.29638 1.06102 3.26531 0.544402 4.32031 0.406195C4.58925 0.376376 4.8607 0.432999 5.0953 0.567854C5.32989 0.702709 5.51542 0.908784 5.625 1.1562L7.19531 4.82026C7.27677 5.01045 7.30943 5.21797 7.29033 5.42398C7.27123 5.62999 7.20097 5.82797 7.08594 5.99995L5.78906 7.98432C6.37632 9.17611 7.34395 10.1382 8.53906 10.7187L10.5 9.41401C10.6718 9.29821 10.8703 9.22811 11.0767 9.21034C11.2831 9.19257 11.4906 9.22771 11.6797 9.31245L15.3438 10.8749C15.5912 10.9845 15.7972 11.1701 15.9321 11.4047C16.0669 11.6392 16.1236 11.9107 16.0938 12.1796C15.9555 13.2346 15.4389 14.2036 14.64 14.9063C13.841 15.609 12.814 15.9976 11.75 15.9999ZM4.47656 1.64838C3.72262 1.7453 3.02985 2.11371 2.52796 2.68462C2.02608 3.25553 1.7495 3.9898 1.75 4.74995C1.75207 7.40148 2.8063 9.94381 4.68122 11.8187C6.55613 13.6936 9.09847 14.7479 11.75 14.7499C12.5101 14.7504 13.2444 14.4739 13.8153 13.972C14.3862 13.4701 14.7546 12.7773 14.8516 12.0234L11.1875 10.4609L9.23438 11.7656C9.05466 11.8844 8.8473 11.9547 8.63239 11.9698C8.41749 11.9848 8.20234 11.9441 8.00781 11.8515C6.5523 11.1474 5.37495 9.97558 4.66406 8.52338C4.57034 8.32952 4.52828 8.11473 4.54197 7.89984C4.55565 7.68494 4.62462 7.47722 4.74219 7.29682L6.04688 5.31245L4.47656 1.64838Z" fill="currentColor" />
+                    </svg>
+
                     {{ service_page.phone }}
                 </a>
                 {% elif service_page.messenger_link %}
                 <a href="{{ service_page.messenger_link }}" class="button">
-                    <img class="w-4 w-full" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/chat.png" alt="">
+                    <svg class="w-[20px]" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.667 0.666748H2.33366C1.41699 0.666748 0.666992 1.41675 0.666992 2.33341V17.3334L4.00032 14.0001H15.667C16.5837 14.0001 17.3337 13.2501 17.3337 12.3334V2.33341C17.3337 1.41675 16.5837 0.666748 15.667 0.666748ZM15.667 12.3334H3.33366L2.33366 13.3334V2.33341H15.667V12.3334Z" fill="currentColor" />
+                    </svg>
                     Chat on Messenger
                 </a>
                 {% endif %}
