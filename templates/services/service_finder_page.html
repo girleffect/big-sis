@@ -148,12 +148,12 @@
             <div class=" px-4 pb-4 mt-auto rounded">
                 {% if service_page.phone %}
                 <a class="button !mt-0 w-full" href="tel:{{ service_page.phone }}">
-                    <img class="w-4" src="{{ STATIC_URL }}img/icons/phone.png" alt="">
+                    <img class="w-4" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/phone.png" alt="">
                     {{ service_page.phone }}
                 </a>
                 {% elif service_page.messenger_link %}
                 <a href="{{ service_page.messenger_link }}" class="button">
-                    <img class="w-4 w-full" src="{{ STATIC_URL }}img/icons/chat.png" alt="">
+                    <img class="w-4 w-full" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/chat.png" alt="">
                     Chat on Messenger
                 </a>
                 {% endif %}

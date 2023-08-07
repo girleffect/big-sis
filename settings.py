@@ -135,11 +135,11 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 TAILWIND_FOLDER_NAME =TAILWIND_APP_NAME.split('.',1)[1]
-TAILWIND_CSS_PATH = f'css/{TAILWIND_FOLDER_NAME}/dist/styles.css'
+TAILWIND_CSS_PATH = f'{TAILWIND_FOLDER_NAME}/css/{TAILWIND_FOLDER_NAME}/dist/styles.css'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'apps',TAILWIND_FOLDER_NAME, 'static/'),
 ]
-
+TEMPLATES[0]['OPTIONS']['context_processors'].append('apps.helpers.context_processors.export_theme_vars')
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 TEMPLATE_CONTEXT_PROCESSORS = [

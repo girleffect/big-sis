@@ -16,7 +16,7 @@
             {% if global_settings.email %}
                 <a class="inline-flex text-base gap-2 hover:opacity-70 transition-opacity duration-300"
                    href="mailto:{{ global_settings.email }}">
-                    <img class='mr-2 w-5 my-auto' loading="lazy" src="{{ STATIC_URL }}img/icons/mail.png" alt="">
+                    <img class='mr-2 w-5 my-auto' loading="lazy" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/mail.png" alt="">
                     Email us at {{ global_settings.email }}
                 </a>
             {% endif %}
@@ -27,7 +27,7 @@
                     <a href="{{ global_settings.facebook_url }}"
                        target="_blank">
                         <img class='h-7 transition-transform hover:scale-110'
-                             src="{{ STATIC_URL }}img/icons/logos_facebook.png"
+                             src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/logos_facebook.png"
                              alt="">
                     </a>
                 {% endif %}
@@ -35,7 +35,7 @@
                     <a href="{{ global_settings.tiktok_url }}"
                        target="_blank">
                         <img class='h-7 transition-transform hover:scale-110'
-                             src="{{ STATIC_URL }}img/icons/logos_tiktok-icon.png"
+                             src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/logos_tiktok-icon.png"
                              alt="">
                     </a>
                 {% endif %}

@@ -17,7 +17,7 @@
 
     <div class="col-span-12 lg:col-span-5">
         <a href="{% pageurl page.get_parent.get_parent %}" class="back-button"> <img class="w-2"
-                src="{{STATIC_URL}}img/icons/slider-prev.png" alt=""> {{ page.get_parent.get_parent.title }}</a>
+                src="{{STATIC_URL}}{{ THEME_URL }}img/icons/slider-prev.png" alt=""> {{ page.get_parent.get_parent.title }}</a>
         {% if page.image %}
         <img class="w-full mr-4 rounded"  src="{% image_url page.image  'fill-500x500|format-jpeg' %}" alt="">
         {% endif %}

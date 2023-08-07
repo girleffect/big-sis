@@ -34,7 +34,7 @@
                 {% if page.whatsapp_link and not moya_flag %}
                     <a href="{{ page.whatsapp_link }}" target="_blank" class="hover:scale-105 transition-transform"><img
                             class='mx-5 w-11 '
-                            src="{{ STATIC_URL }}img/icons/whatsapp.png" alt="">
+                            src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/whatsapp.png" alt="">
                         {% if page.whatsapp_link_text %}
                             <span class="text-xs text-center block mt-2">{{ page.whatsapp_link_text|linebreaksbr }}</span>
                         {% endif %}
@@ -42,7 +42,7 @@
                 {% endif %}
                 {% if page.messenger_link and not moya_flag %}
                     <a href="{{ page.messenger_link }}" target="_blank" class="hover:scale-105 transition-transform"><img class='mx-5 w-11 '
-                            src="{{ STATIC_URL }}img/icons/messenger.png" alt="">
+                            src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/messenger.png" alt="">
                             {% if page.messenger_link_text %}
                                 <span class="text-xs text-center block mt-2">{{ page.messenger_link_text|linebreaksbr }}</span>
                              {% endif %}
@@ -50,7 +50,7 @@
                 {% endif %}
                 {% if page.moya_link %}
                     <a href="{{ page.moya_link }}" target="_blank" class="hover:scale-105 transition-transform"><img class='mx-5 w-11 '
-                            src="{{ STATIC_URL }}img/icons/app.png" alt="">
+                            src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/app.png" alt="">
                         {% if page.moya_link_text %}
                             <span class="text-xs text-center block mt-2">{{ page.moya_link_text|linebreaksbr }}</span>
                         {% endif %}
