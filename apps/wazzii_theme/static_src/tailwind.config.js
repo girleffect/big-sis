@@ -62,14 +62,14 @@ module.exports = {
         // => @media (min-width: 992px) { ... }
       },
       fontSize: {
-        h1: ['42px', '42px'],
-        h2: ['36px', '40px'],
+        h1: ['40px', '40px'],
+        h2: ['34px', '40px'],
         h3: ['32px', '37px'],
         h4: ['24px', '29px'],
-        xs: ['14px', '17px'],
+        xs: ['12px', '17px'],
         sm: ['16px', '23px'],
-        base: ['18px', '26px'],
-        lg: ['22px', '32px'],
+        base: ['17px', '26px'],
+        lg: ['21px', '32px'],
         xl: ['24px', '34px'],
       },
 

@@ -2069,12 +2069,12 @@ select{
 }
 
 .text-base{
-  font-size: 18px;
+  font-size: 17px;
   line-height: 26px;
 }
 
 .text-h2{
-  font-size: 36px;
+  font-size: 34px;
   line-height: 40px;
 }
 
@@ -2089,7 +2089,7 @@ select{
 }
 
 .text-lg{
-  font-size: 22px;
+  font-size: 21px;
   line-height: 32px;
 }
 
@@ -2099,7 +2099,7 @@ select{
 }
 
 .text-xs{
-  font-size: 14px;
+  font-size: 12px;
   line-height: 17px;
 }
 
@@ -2332,7 +2332,7 @@ html {
 }
 
 .footer .page-header{
-  font-size: 36px;
+  font-size: 34px;
   line-height: 40px;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
@@ -2347,15 +2347,15 @@ html {
 
 @media (min-width: 748px){
   .page-header{
-    font-size: 36px;
+    font-size: 34px;
     line-height: 40px;
   }
 }
 
 @media (min-width: 1200px){
   .page-header{
-    font-size: 42px;
-    line-height: 42px;
+    font-size: 40px;
+    line-height: 40px;
   }
 }
 
@@ -2391,7 +2391,7 @@ html {
 .prose ol,
 .prose ul{
   margin-top: 0.5rem;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 26px;
 }
 
@@ -2417,13 +2417,13 @@ html {
 }
 
 .prose b{
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .prose h1{
   margin-bottom: 0.75rem;
-  font-size: 42px;
-  line-height: 42px;
+  font-size: 40px;
+  line-height: 40px;
   font-weight: 700;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
@@ -2450,7 +2450,7 @@ html {
 }
 
 .footer .prose h2{
-  font-size: 36px;
+  font-size: 34px;
   line-height: 40px;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
@@ -2465,7 +2465,7 @@ html {
 
 @media (min-width: 748px){
   .prose h2{
-    font-size: 36px;
+    font-size: 34px;
     line-height: 40px;
   }
 }
@@ -2484,7 +2484,7 @@ html {
 }
 
 .footer .prose h3{
-  font-size: 36px;
+  font-size: 34px;
   line-height: 40px;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
@@ -2506,14 +2506,14 @@ html {
 
 .prose h5{
   margin-bottom: 0.25rem;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 32px;
   font-weight: 700;
 }
 
 .prose h6{
   margin-bottom: 0.25rem;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 26px;
   font-weight: 700;
 }
@@ -2696,7 +2696,7 @@ details > summary::-webkit-details-marker {
 }
 
 .footer .text-h3{
-  font-size: 36px;
+  font-size: 34px;
   line-height: 40px;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
@@ -3106,7 +3106,7 @@ section.bg-pattern + section:not(.bg-dark-section):not(.timeline):not(.bg-primar
   }
 
   .md\:text-h2{
-    font-size: 36px;
+    font-size: 34px;
     line-height: 40px;
   }
 

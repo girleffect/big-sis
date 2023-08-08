@@ -112,7 +112,7 @@ html {
 }
 
 .prose b {
-    @apply font-medium;
+    @apply font-bold;
 }
 .prose h1 {
     @apply text-h1 font-bold mb-3;
