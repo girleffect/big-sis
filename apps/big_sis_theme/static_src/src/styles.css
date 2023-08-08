@@ -219,3 +219,11 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   .timeline{
     @apply bg-primary-500;
   }
+
+
+  
+.service-thumbnail{
+ 
+    @apply hover:border-primary-500;
+ 
+}

@@ -140,9 +140,9 @@ html {
 
 /* Button */
 .button {
-    @apply bg-primary-500 px-4 py-3 rounded text-yellow font-medium
+    @apply bg-cyan px-4 py-3 rounded text-black font-medium
      inline-block mt-5 inline-flex items-center gap-2 
-     hover:bg-cyan hover:text-black transition-colors duration-100 ease-in;
+     hover:bg-cyan-dark hover:text-yellow transition-colors duration-100 ease-in;
 }
 
 /* Animations */
@@ -223,7 +223,8 @@ details > summary::-webkit-details-marker {
 
 .home-header {
     @apply text-white;
-    background-size: 500px;
+    background-size:800px;
+    /* text-shadow: 0 0 30px rgba(0, 0, 0, 0.4); */
 }
 
 .page-header {
@@ -240,12 +241,23 @@ details > summary::-webkit-details-marker {
 }
 
 .footer {
-    background-size: 500px;
+ 
+    background-size: 800px;
+}
+
+.footer .text-h3{
+    @apply font-header text-h2;
 }
 .subfooter{
-    @apply bg-yellow text-black;
+    @apply bg-pink text-black;
 }
 
 .timeline {
     @apply bg-primary-500;
+}
+
+
+.service-thumbnail{
+   
+    @apply hover:border-cyan;
 }
