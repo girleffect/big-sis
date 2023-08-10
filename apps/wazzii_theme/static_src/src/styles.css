@@ -235,6 +235,11 @@ details > summary::-webkit-details-marker {
 .nav-items a {
     @apply font-logo text-xl uppercase  tracking-wider mx-1 md:mx-2.5;
 }
+
+.sticky-menu{
+    @apply text-primary-300  hover:!border-yellow;
+}
+
 .menu-container .container {
     border-bottom: 0 !important;
 }
@@ -277,9 +282,7 @@ details > summary::-webkit-details-marker {
 }
 
 
-.category-button{
-}
 
 .category-button{
-    @apply rounded;
+    @apply rounded ;
 }

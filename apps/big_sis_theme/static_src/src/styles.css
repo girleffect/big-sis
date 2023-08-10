@@ -207,6 +207,10 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     @apply  mx-2 md:mx-3;
 }
 
+.sticky-menu{
+    @apply text-black  hover:!border-primary-500;
+}
+
 
   .home-header{
     @apply bg-dark text-white bg-cover ;

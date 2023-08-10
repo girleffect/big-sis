@@ -2680,6 +2680,16 @@ details > summary::-webkit-details-marker {
   }
 }
 
+.sticky-menu{
+  --tw-text-opacity: 1;
+  color: rgb(134 101 198 / var(--tw-text-opacity));
+}
+
+.sticky-menu:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(255 209 0 / var(--tw-border-opacity)) !important;
+}
+
 .menu-container .container {
   border-bottom: 0 !important;
 }
@@ -2789,11 +2799,6 @@ section.bg-pattern + section:not(.bg-dark-section):not(.timeline):not(.bg-primar
 
 .hover\:gap-3:hover{
   gap: 0.75rem;
-}
-
-.hover\:\!border-primary-500:hover{
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(99 61 179 / var(--tw-border-opacity)) !important;
 }
 
 .hover\:border-primary-500:hover{

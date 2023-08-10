@@ -13,7 +13,7 @@
 <header class=" md:flex md:flex-col md:align-center md:justify-center overflow-hidden">
     {% include 'includes/main-nav.html' %}
     <!-- #region HEADER CONTENT -->
-    <div class="container py-10 lg:py-16 my-auto flex flex-col md:flex-row  grid grid-cols-12">
+    <div class="container py-10 lg:py-16 my-auto flex flex-col md:flex-row grid grid-cols-12">
         <div class="col-span-12 md:col-span-8 mb-9 lg:mb-0 lg:col-span-8 md:pr-10 lg:pr-20" id="filter-container">
             <h1 class="page-header">
                 {{ page.title }}
@@ -38,10 +38,10 @@
 
                     {% if is_category %}
                     <a href="{% pageurl page.get_parent %}"
-                       class="swiper-slide !w-auto{% if not moya_flag %}  whitespace-nowrap {% endif %} category-button px-4 py-2 border border-primary-500 text-primary-500 hover:text-white hover:bg-primary-500">All</a>
+                       class="swiper-slide !w-auto mr-2 {% if not moya_flag %}  whitespace-nowrap {% endif %} category-button px-4 py-2 border border-primary-500 text-primary-500 hover:text-white hover:bg-primary-500">All</a>
                     {% for sibling_page in page.get_siblings.live %}
                     <a href="{% pageurl sibling_page %}"
-                       class=" swiper-slide !w-auto  {% if sibling_page.id == page.id %}whitespace-nowrap category-button px-4 py-2 border border-primary-500 bg-primary-500 text-white{% else %}rounded-full px-4 py-2 border border-primary-500 text-primary-500 hover:text-white hover:bg-primary-500{% endif %}">
+                       class=" swiper-slide !w-auto  mr-2 category-button {% if sibling_page.id == page.id %} whitespace-nowrap  px-4 py-2 border border-primary-500 bg-primary-500 text-white{% else %}  px-4 py-2 border border-primary-500 text-primary-500 hover:text-white hover:bg-primary-500{% endif %}">
                         {{sibling_page.title }}
                     </a>
                     {% endfor %}
