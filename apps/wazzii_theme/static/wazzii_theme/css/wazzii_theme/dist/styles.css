@@ -2279,13 +2279,14 @@ html {
 .text-header-h1 {
   font-size: 45px;
   line-height: 45px;
-  text-transform:uppercase;
-  letter-spacing:2%;
+  text-transform: uppercase;
+  letter-spacing: 2%;
 }
 
 .text-header-subtitle {
   font-size: 23px;
   line-height: 31px;
+  letter-spacing: -0.025em;
 }
 
 @media (min-width: 748px) {
@@ -2346,7 +2347,6 @@ html {
   text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
-  letter-spacing: 0.025em;
 }
 
 
@@ -2416,7 +2416,6 @@ html {
 .page-header{
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
-  letter-spacing: 0.025em;
 }
 
 .text-h3,
@@ -2437,7 +2436,6 @@ html {
   font-weight: 700;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
-  letter-spacing: 0.025em;
 }
 
 
@@ -2465,7 +2463,6 @@ html {
   text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
-  letter-spacing: 0.025em;
 }
 
 
@@ -2500,7 +2497,6 @@ html {
   text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
-  letter-spacing: 0.025em;
 }
 
 
@@ -2540,33 +2536,34 @@ html {
 
 /* Button */
 
-.button{
+.button {
+  background-image: url("../../../img/button-pattern.png");
+  background-color: #97e4e4;
   margin-top: 1.25rem;
   display: inline-block;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.25rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(64 208 186 / var(--tw-bg-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(49 39 39 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 100ms;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .button:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(9 87 114 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(255 209 0 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  background-image: url("../../../img/button-pattern-hover.png");
+  background-color: #633db3;
 }
 
 /* Animations */
@@ -2683,10 +2680,14 @@ details > summary::-webkit-details-marker {
   }
 }
 
+.menu-container .container {
+  border-bottom: 0 !important;
+}
+
 .home-header{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  background-size:800px;
+  background-size: 800px;
   /* text-shadow: 0 0 30px rgba(0, 0, 0, 0.4); */
 }
 
@@ -2716,7 +2717,6 @@ details > summary::-webkit-details-marker {
   text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
-  letter-spacing: 0.025em;
 }
 
 
@@ -2754,6 +2754,10 @@ section.bg-pattern + section:not(.bg-dark-section):not(.timeline):not(.bg-primar
 .service-thumbnail:hover{
   --tw-border-opacity: 1;
   border-color: rgb(64 208 186 / var(--tw-border-opacity));
+}
+
+.category-button{
+  border-radius: 0.25rem;
 }
 
 .after\:hidden::after{

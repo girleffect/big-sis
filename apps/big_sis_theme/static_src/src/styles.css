@@ -227,3 +227,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     @apply hover:border-primary-500;
  
 }
+
+.category-button{
+    @apply rounded-full;
+}

@@ -40,12 +40,13 @@ html {
 .text-header-h1 {
     font-size: 45px;
     line-height: 45px;
-    text-transform:uppercase;
-    letter-spacing:2%;
+    text-transform: uppercase;
+    letter-spacing: 2%;
 }
 .text-header-subtitle {
     font-size: 23px;
     line-height: 31px;
+    @apply tracking-tight;
 }
 
 @media screen(md) {
@@ -107,7 +108,7 @@ html {
 .text-h2,
 .text-header-h1,
 .page-header {
-    @apply font-header  tracking-wide pb-1;
+    @apply font-header  pb-1;
 }
 
 .text-h3,
@@ -146,9 +147,17 @@ html {
 
 /* Button */
 .button {
-    @apply bg-cyan px-4 py-3 rounded text-black font-medium
+    background-image: url("../../../img/button-pattern.png");
+    background-color: #97e4e4;
+
+    @apply px-4 py-3 rounded text-black font-bold text-[18px]
      inline-block mt-5 inline-flex items-center gap-2 
-     hover:bg-cyan-dark hover:text-yellow transition-colors duration-100 ease-in;
+    hover:text-white transition-all duration-100 ease-in;
+}
+
+.button:hover {
+    background-image: url("../../../img/button-pattern-hover.png");
+    background-color: #633db3;
 }
 
 /* Animations */
@@ -223,13 +232,15 @@ details > summary::-webkit-details-marker {
     @apply h-10 md:h-10 max-md:mx-auto max-md:mb-3;
 }
 
-.nav-items a{
+.nav-items a {
     @apply font-logo text-xl uppercase  tracking-wider mx-1 md:mx-2.5;
 }
-
+.menu-container .container {
+    border-bottom: 0 !important;
+}
 .home-header {
     @apply text-white;
-    background-size:800px;
+    background-size: 800px;
     /* text-shadow: 0 0 30px rgba(0, 0, 0, 0.4); */
 }
 
@@ -247,14 +258,13 @@ details > summary::-webkit-details-marker {
 }
 
 .footer {
- 
     background-size: 800px;
 }
 
-.footer .text-h3{
+.footer .text-h3 {
     @apply font-header uppercase text-h2;
 }
-.subfooter{
+.subfooter {
     @apply bg-pink text-black;
 }
 
@@ -262,8 +272,14 @@ details > summary::-webkit-details-marker {
     @apply bg-primary-500;
 }
 
-
-.service-thumbnail{
-   
+.service-thumbnail {
     @apply hover:border-cyan;
+}
+
+
+.category-button{
+}
+
+.category-button{
+    @apply rounded;
 }
