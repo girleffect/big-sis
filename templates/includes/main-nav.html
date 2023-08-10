@@ -1,6 +1,6 @@
 {% load helpers_tags wagtailcore_tags %}
 {% get_in_menu_pages request as menu_items %}
-<div class="transition-all z-20" :class="{'fixed w-full bg-white top-0 !border-neutral-300' : stickyMenu }">
+<div class="menu-container transition-all z-20" :class="{'fixed w-full bg-white top-0 !border-neutral-300' : stickyMenu }">
     <div class="container flex space-around md:py-5 py-4 justify-between border-b  max-md:flex-col {% if darkbg %}border-white {% else %}border-neutral-300{% endif %}">
         <a href="/">
             {% if darkbg %}

@@ -24,6 +24,7 @@ module.exports = {
     fontFamily: {
       sans: 'work-sans, sans-serif',
       header: 'bn-dime, sans-serif',
+      logo: 'thunder, sans-serif',
       serif: 'fedra-sans, sans-serif',
       // lala : 'fedra-sans, sans-serif',
     },
@@ -40,8 +41,7 @@ module.exports = {
         'white': '#ffffff',
         'black': '#312727',
         'gray-300': '#A5A5A5',
-        'primary-300': '#889FFF',
-   
+        'primary-300': '#8665C6',
         'primary-500': '#633DB3',
         'primary-600': '#633DB3',
         'primary-700': '#095772',

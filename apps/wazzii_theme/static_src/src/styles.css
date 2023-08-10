@@ -10,6 +10,11 @@
     src: url(../../../fonts/bn-dime-display.otf);
     font-weight: 800;
 }
+@font-face {
+    font-family: thunder;
+    src: url(../../../fonts/thunder.ttf);
+    font-weight: 800;
+}
 /* @font-face {
     font-family: work-sans;
     src: url(../../../fonts/work-sans_semibold.ttf);
@@ -35,6 +40,8 @@ html {
 .text-header-h1 {
     font-size: 45px;
     line-height: 45px;
+    text-transform:uppercase;
+    letter-spacing:2%;
 }
 .text-header-subtitle {
     font-size: 23px;
@@ -43,32 +50,31 @@ html {
 
 @media screen(md) {
     .text-header-h1 {
-        font-size: 65px;
-        line-height: 65px;
+        font-size: 57px;
+        line-height: 58px;
     }
     .text-header-subtitle {
-        font-size: 26px;
-        line-height: 30px;
+        font-size: 24px;
+        line-height: 28px;
     }
 }
 @media screen(xl) {
     .text-header-h1 {
-        font-size: 72px;
-        line-height: 72px;
+        font-size: 58px;
+        line-height: 60px;
     }
     .text-header-subtitle {
-        font-size: 30px;
-        line-height: 37px;
+        font-size: 28px;
+        line-height: 36px;
     }
 }
 @media screen(2xl) {
     .text-header-h1 {
-        font-size: 76px;
-        line-height: 76px;
+        font-size: 63px;
     }
     .text-header-subtitle {
-        font-size: 34px;
-        line-height: 42px;
+        font-size: 28px;
+        line-height: 36px;
     }
 }
 
@@ -218,7 +224,7 @@ details > summary::-webkit-details-marker {
 }
 
 .nav-items a{
-    @apply font-header tracking-wider mx-1 md:mx-2.5;
+    @apply font-logo text-xl uppercase  tracking-wider mx-1 md:mx-2.5;
 }
 
 .home-header {
@@ -246,7 +252,7 @@ details > summary::-webkit-details-marker {
 }
 
 .footer .text-h3{
-    @apply font-header text-h2;
+    @apply font-header uppercase text-h2;
 }
 .subfooter{
     @apply bg-pink text-black;

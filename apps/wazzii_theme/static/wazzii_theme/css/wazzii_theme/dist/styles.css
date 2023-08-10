@@ -2242,6 +2242,14 @@ select{
   font-weight: 800;
 }
 
+@font-face {
+  font-family: thunder;
+
+  src: url(../../../fonts/thunder.ttf);
+
+  font-weight: 800;
+}
+
 /* @font-face {
     font-family: work-sans;
     src: url(../../../fonts/work-sans_semibold.ttf);
@@ -2271,6 +2279,8 @@ html {
 .text-header-h1 {
   font-size: 45px;
   line-height: 45px;
+  text-transform:uppercase;
+  letter-spacing:2%;
 }
 
 .text-header-subtitle {
@@ -2280,37 +2290,36 @@ html {
 
 @media (min-width: 748px) {
   .text-header-h1 {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 57px;
+    line-height: 58px;
   }
 
   .text-header-subtitle {
-    font-size: 26px;
-    line-height: 30px;
+    font-size: 24px;
+    line-height: 28px;
   }
 }
 
 @media (min-width: 1200px) {
   .text-header-h1 {
-    font-size: 72px;
-    line-height: 72px;
+    font-size: 58px;
+    line-height: 60px;
   }
 
   .text-header-subtitle {
-    font-size: 30px;
-    line-height: 37px;
+    font-size: 28px;
+    line-height: 36px;
   }
 }
 
 @media (min-width: 1460px) {
   .text-header-h1 {
-    font-size: 76px;
-    line-height: 76px;
+    font-size: 63px;
   }
 
   .text-header-subtitle {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: 28px;
+    line-height: 36px;
   }
 }
 
@@ -2334,6 +2343,7 @@ html {
 .footer .page-header{
   font-size: 34px;
   line-height: 40px;
+  text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
   letter-spacing: 0.025em;
@@ -2452,6 +2462,7 @@ html {
 .footer .prose h2{
   font-size: 34px;
   line-height: 40px;
+  text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
   letter-spacing: 0.025em;
@@ -2486,6 +2497,7 @@ html {
 .footer .prose h3{
   font-size: 34px;
   line-height: 40px;
+  text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
   letter-spacing: 0.025em;
@@ -2657,7 +2669,10 @@ details > summary::-webkit-details-marker {
 .nav-items a{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-  font-family: bn-dime, sans-serif;
+  font-family: thunder, sans-serif;
+  font-size: 24px;
+  line-height: 34px;
+  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
@@ -2698,6 +2713,7 @@ details > summary::-webkit-details-marker {
 .footer .text-h3{
   font-size: 34px;
   line-height: 40px;
+  text-transform: uppercase;
   padding-bottom: 0.25rem;
   font-family: bn-dime, sans-serif;
   letter-spacing: 0.025em;
