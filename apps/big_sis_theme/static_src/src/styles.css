@@ -242,3 +242,6 @@ details > summary::-webkit-details-marker {
 .about-header--img{
     @apply md:mx-auto md:mt-auto;
 }
+.faqs .grid{
+    @apply divide-primary-500/[.3]  border-primary-500/[.3] ;
+}
