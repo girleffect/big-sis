@@ -44,7 +44,6 @@ html {
     line-height: 31px;
 }
 
-
 @media screen(md) {
     .text-header-h1 {
         font-size: 65px;
@@ -88,8 +87,8 @@ html {
 .prose a {
     @apply text-primary-600;
 }
-.prose iframe{
-    width:100%;
+.prose iframe {
+    width: 100%;
 }
 .prose p,
 .prose ol,
@@ -177,11 +176,15 @@ html {
 
 /* Addressing white space between two white sections */
 /* every second section without a background, that follows a section without a background, gets a light gray colour */
-section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern):not(:nth-of-type(2n)) {
+section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern)
+    + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern):not(:nth-of-type(2n)) {
     @apply bg-neutral-100;
 }
 
-section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-500 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-600 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-pattern + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
+section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-primary-500 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-primary-600 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-pattern + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
     @apply bg-white;
 }
 
@@ -190,48 +193,52 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     @apply bg-white;
 } */
 
-
-
-  details > summary {
+details > summary {
     list-style: none;
-  }
-  details > summary::-webkit-details-marker {
+}
+details > summary::-webkit-details-marker {
     display: none;
-  }
-  
-
-  .nav-logo{
-    @apply h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3;
-  }
-  .nav-items a{
-    @apply  mx-2 md:mx-3;
 }
 
-.sticky-menu{
+.nav-logo {
+    @apply h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3;
+}
+.nav-items a {
+    @apply mx-2 md:mx-3;
+}
+
+.sticky-menu {
     @apply text-black  hover:!border-primary-500;
 }
 
+.home-header, header.has-bg {
+    @apply bg-dark text-white bg-cover;
+}
 
-  .home-header{
-    @apply bg-dark text-white bg-cover ;
-  }
 
-  .footer{@apply bg-cover ;}
-.subfooter{
+.footer {
+    @apply bg-cover;
+}
+.subfooter {
     @apply bg-primary-600;
 }
-  .timeline{
+.timeline {
     @apply bg-primary-500;
-  }
-
-
-  
-.service-thumbnail{
- 
-    @apply hover:border-primary-500;
- 
 }
 
-.category-button{
+.service-thumbnail {
+    @apply hover:border-primary-500;
+}
+
+.category-button {
     @apply rounded-full;
+}
+
+.figures span {
+    @apply text-4xl;
+}
+
+
+.about-header--img{
+    @apply md:mx-auto md:mt-auto;
 }

@@ -45,12 +45,14 @@ module.exports = {
         'primary-500': '#633DB3',
         'primary-600': '#633DB3',
         'primary-700': '#095772',
-        'dark-section': '#312727',
+        'dark-section': '#633DB3',
         'cyan': '#40D0BA',
         'cyan-dark': '#095772', 
         'yellow': '#FFD100',
         'orange': "#FF8100",
-        'pink':"#FF7E76",
+        'red': "#FF4834",
+        'pink': "#FF7E76",
+        'pink-60': "#ffb3ae",
         'neutral-100': "#F2F1EB"
       },
 
