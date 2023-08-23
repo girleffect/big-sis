@@ -2729,11 +2729,6 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   position: relative;
 }
 
-.page-header{
-  --tw-text-opacity: 1;
-  color: rgb(147 51 234 / var(--tw-text-opacity));
-}
-
 .about-header--img{
   position: relative;
   z-index: 10;
@@ -2932,41 +2927,40 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   position: relative;
 }
 
-.latest-posts,
-.timeline{
+.latest-posts{
   position: relative;
   padding-bottom: 8rem;
 }
 
-.latest-posts:after, .timeline:after {
+.latest-posts:after {
     content: "";
   }
 
-.latest-posts:after,.timeline:after{
+.latest-posts:after{
     position: absolute;
   }
 
-.latest-posts:after,.timeline:after{
+.latest-posts:after{
     left: 0px;
   }
 
-.latest-posts:after,.timeline:after{
+.latest-posts:after{
     bottom: 0px;
   }
 
-.latest-posts:after,.timeline:after{
+.latest-posts:after{
     display: block;
   }
 
-.latest-posts:after,.timeline:after{
+.latest-posts:after{
     height: 60px;
   }
 
-.latest-posts:after,.timeline:after{
+.latest-posts:after{
     width: 100%;
   }
 
-.latest-posts:after, .timeline:after {
+.latest-posts:after {
     background: url("../../../img/circles-pattern.jpg");
     background-size: 510px;
   }

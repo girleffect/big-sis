@@ -261,9 +261,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     position: relative;
 }
 
-.page-header {
-    @apply text-purple-600;
-}
+
 .about-header--img {
     @apply md:mx-auto md:my-auto relative z-10;
 }
@@ -310,8 +308,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     position: relative;
 }
 
-.latest-posts,
-.timeline {
+.latest-posts {
     @apply relative pb-32;
 
     &:after {
