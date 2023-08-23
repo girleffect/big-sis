@@ -22,7 +22,7 @@
             {% if page.header_left_side_image %}
                 {% for block in page.header_left_side_image %}
                     {% if block.block_type == 'Image' %}
-                        <img class="left-col--img mb-5"  src="{% image_url block.value 'width-525' %}" alt="">
+                        <img class="left-col--img mb-5"  src="{% image_url block.value 'width-900' %}" alt="">
                     {% elif block.block_type == 'Document' %}
                         <img class="left-col--img mb-5"  src="{{ block.value.file.url }}" alt="">
                     {% endif %}

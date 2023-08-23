@@ -308,7 +308,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     position: relative;
 }
 
-.latest-posts {
+/* .latest-posts {
     @apply relative pb-32;
 
     &:after {
@@ -317,7 +317,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
         background: url("../../../img/circles-pattern.jpg");
         background-size: 510px;
     }
-}
+} */
 
 .faqs .grid {
     @apply divide-pink-60/[.3] border-pink-60/[.3];
