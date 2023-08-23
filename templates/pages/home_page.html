@@ -19,7 +19,15 @@
         {% endif %}
 
         <div class="lg:col-span-7 text-center lg:pr-20 lg:text-left lg:order-1">
-            <img class="left-col--img mb-5" src="{{ STATIC_URL }}{{ THEME_URL }}img/home-left-col.png" alt="">
+            {% if page.header_left_side_image %}
+                {% for block in page.header_left_side_image %}
+                    {% if block.block_type == 'Image' %}
+                        <img class="left-col--img mb-5"  src="{% image_url block.value 'width-525' %}" alt="">
+                    {% elif block.block_type == 'Document' %}
+                        <img class="left-col--img mb-5"  src="{{ block.value.file.url }}" alt="">
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
             {% if page.header_title %}
                 <h1 class="mb-4 font-bold text-header-h1">
                     {{ page.header_title|linebreaksbr }}

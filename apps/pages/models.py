@@ -39,11 +39,21 @@ class HomePage(Page):
             'Document': {'min_num': 0, 'max_num': 1},
         },
     )
-    header_image = StreamField([
-        ('Image', ImageChooserBlock(help_text='Recommended aspect ratio: 1/1 and image dimensions: 525x525')),
+    header_left_side_image = StreamField([
+        ('Image', ImageChooserBlock(help_text='Recommended aspect ratio: 16/9 and minimum width 900px')),
         ('Document', DocumentChooserBlock()),
 
-    ],use_json_field=False, blank=True, min_num=0, max_num=1, collapsed=True,
+    ],use_json_field=False, blank=True, min_num=0, max_num=1,verbose_name='Header left side image', collapsed=True,
+        block_counts={
+            'Image': {'min_num': 0, 'max_num': 1},
+            'Document': {'min_num': 0, 'max_num': 1},
+        },
+    )
+    header_image = StreamField([
+        ('Image', ImageChooserBlock(help_text='Recommended aspect ratio: 1/1 and minimum width 900px')),
+        ('Document', DocumentChooserBlock()),
+
+    ],use_json_field=False, blank=True, min_num=0, max_num=1,verbose_name='Header right side image', collapsed=True,
         block_counts={
             'Image': {'min_num': 0, 'max_num': 1},
             'Document': {'min_num': 0, 'max_num': 1},
@@ -84,6 +94,7 @@ class HomePage(Page):
                 FieldPanel('header_title'),
                 FieldPanel('header_subtitle'),
                 FieldPanel('header_background_image'),
+                FieldPanel('header_left_side_image'),
                 FieldPanel('header_image'),
                 FieldPanel('whatsapp_link'),
                 FieldPanel('whatsapp_link_text'),
