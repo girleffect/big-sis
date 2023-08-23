@@ -145,6 +145,15 @@ class AboutPage(Page):
     template_name = 'pages/about_page.html'
     header_title = models.CharField(max_length=255, blank=True)
     header_subtitle = models.TextField(blank=True)
+    header_background_image = models.ForeignKey(
+        settings.WAGTAILIMAGES_IMAGE_MODEL,
+        verbose_name='Header background image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Recommended aspect ratio: 16/9 and image dimensions: 1920x1080'
+    )
     header_image = models.ForeignKey(
         settings.WAGTAILIMAGES_IMAGE_MODEL,
         verbose_name='Header image',
@@ -180,6 +189,7 @@ class AboutPage(Page):
             [
                 FieldPanel('header_title'),
                 FieldPanel('header_subtitle'),
+                FieldPanel('header_background_image'),
                 FieldPanel('header_image'),
             ],
             heading="Header Section",

@@ -2,21 +2,21 @@
 {% load wagtailcore_tags wagtailimages_tags helpers_tags %}
 {% check_for_moya_app as moya_flag %}
 {% block content %}
-<style>
-    #about-header {
-        background-image:url('{{STATIC_URL}}{{ THEME_URL }}img/about-pattern.jpg');
-        background-size:60%;
-        /*--For mobile devices--*/
-        /* @media (max-width: 1024px) {
-            background-size:cover;
-            background-image:url('{{STATIC_URL}}{{ THEME_URL }}img/about-bg--mobile.jpg');
-           
-        } */
-    }
+{% if page.header_background_image %}
+    <style>
+        #about-header {
+            background-image:url('{% image_url page.header_background_image 'width-1920' %}');
+            background-size:60%;
+            /*--For mobile devices--*/
+            /* @media (max-width: 1024px) {
+                background-size:cover;
+                background-image:url('{{STATIC_URL}}{{ THEME_URL }}img/about-bg--mobile.jpg');
 
-</style>
+            } */
+        }
 
-
+    </style>
+{% endif %}
 
 <!-- #region HEADER -->
 <header id="about-header" class="md:flex md:flex-col md:align-center md:justify-center overflow-hidden has-bg">
