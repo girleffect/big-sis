@@ -5,17 +5,17 @@
 /* Custom Fonts */
 @font-face {
     font-family: fedra-sans;
-    src: url(../../fonts/FedraSansDevanagariB-Book.ttf);
+    src: url(../../../fonts/FedraSansDevanagariB-Book.ttf);
     font-weight: 400;
 }
 @font-face {
     font-family: fedra-sans;
-    src: url(../../fonts/FedraSansDevanagariB-Demi.ttf);
+    src: url(../../../fonts/FedraSansDevanagariB-Demi.ttf);
     font-weight: 500;
 }
 @font-face {
     font-family: fedra-sans;
-    src: url(../../fonts/FedraSansDevanagariB-Bold.ttf);
+    src: url(../../../fonts/FedraSansDevanagariB-Bold.ttf);
     font-weight: 700;
 }
 
@@ -78,6 +78,10 @@ html {
 /* Page Typography */
 .page-header {
     @apply text-h3 md:text-h2 xl:text-h1 text-primary-500 font-bold mb-3;
+}
+
+.has-bg .page-header{
+    @apply text-white;l
 }
 .back-button {
     @apply text-primary-500 flex gap-2 mb-4 items-center hover:gap-3 transition-all hover:-ml-1;
@@ -193,13 +197,11 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     @apply bg-white;
 } */
 
-details > summary {
-    list-style: none;
-}
-details > summary::-webkit-details-marker {
-    display: none;
-}
 
+
+
+
+/* Headers */
 .nav-logo {
     @apply h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3;
 }
@@ -212,36 +214,46 @@ details > summary::-webkit-details-marker {
 }
 
 .home-header, header.has-bg {
-    @apply bg-dark text-white bg-cover;
+    @apply bg-dark-section text-white bg-cover;
+}
+.about-header--img{
+    @apply md:mx-auto md:mt-auto;
 }
 
-
+/* Footer */
 .footer {
     @apply bg-cover;
 }
 .subfooter {
     @apply bg-primary-600;
 }
-.timeline {
-    @apply bg-primary-500;
-}
-
-.service-thumbnail {
-    @apply hover:border-primary-500;
-}
-
-.category-button {
-    @apply rounded-full;
-}
-
-.figures span {
-    @apply text-4xl;
-}
 
 
-.about-header--img{
-    @apply md:mx-auto md:mt-auto;
-}
+/* Sections  Style differences*/
 .faqs .grid{
-    @apply divide-primary-500/[.3]  border-primary-500/[.3] ;
+    @apply divide-neutral-500 border-neutral-500 ;
 }
+    .timeline {
+        @apply bg-primary-500;
+    }
+    
+    .service-thumbnail {
+        @apply hover:border-primary-500;
+    }
+    
+    .category-button {
+        @apply rounded-full;
+    }
+    
+    .figures span {
+        @apply text-4xl;
+    }
+    details > summary {
+        @apply list-none;
+     }
+     details > summary::-webkit-details-marker {
+         display: none;
+     }
+    
+    
+ 

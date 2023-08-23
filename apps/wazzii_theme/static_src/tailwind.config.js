@@ -60,7 +60,7 @@ module.exports = {
         'md': '748px',
         'lg': '1024px',
         'xl': '1200px',
-        '2xl': '1460px',
+        '2xl': '1600px',
         // => @media (min-width: 992px) { ... }
       },
       fontSize: {
