@@ -1189,6 +1189,10 @@ select {
   pointer-events: none;
 }
 
+.\!fixed {
+  position: fixed !important;
+}
+
 .fixed {
   position: fixed;
 }
@@ -2333,6 +2337,11 @@ html {
   }
 }
 
+.has-bg .page-header {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .back-button {
   margin-bottom: 1rem;
   display: flex;
@@ -2589,10 +2598,6 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 .sticky-menu:hover {
   --tw-border-opacity: 1 !important;
   border-color: rgb(68 68 170 / var(--tw-border-opacity)) !important;
-}
-
-.home-header{
-   @apply md:min-h-screen;
 }
 
 .home-header, header.has-bg {
@@ -2968,10 +2973,6 @@ details > summary::-webkit-details-marker {
 
   .md\:hidden {
     display: none;
-  }
-
-  .md\:min-h-screen {
-    min-height: 100vh;
   }
 
   .md\:w-14 {

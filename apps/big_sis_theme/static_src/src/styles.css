@@ -81,7 +81,7 @@ html {
 }
 
 .has-bg .page-header{
-    @apply text-white;l
+    @apply text-white;
 }
 .back-button {
     @apply text-primary-500 flex gap-2 mb-4 items-center hover:gap-3 transition-all hover:-ml-1;

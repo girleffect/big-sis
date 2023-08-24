@@ -348,3 +348,7 @@ details > summary {
 details > summary::-webkit-details-marker {
     display: none;
 }
+
+#about-header{
+    background-size:60%;
+}

@@ -2995,6 +2995,10 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+#about-header{
+  background-size:60%;
+}
+
 .after\:hidden::after{
   content: var(--tw-content);
   display: none;
