@@ -76,10 +76,10 @@ html {
 
 /* Page Typography */
 .page-header {
-    @apply text-h3 md:text-h2 xl:text-h1 text-primary-500 font-bold mb-3;
+    @apply mb-3 font-bold text-h3 md:text-h2 xl:text-h1 text-primary-500;
 }
 .back-button {
-    @apply text-primary-500 flex gap-2 mb-4 items-center hover:gap-3 transition-all hover:-ml-1;
+    @apply flex items-center gap-2 mb-4 transition-all text-primary-500 hover:gap-3 hover:-ml-1;
 }
 
 /* Styling for Richtext Elements */
@@ -104,7 +104,7 @@ html {
 .text-h3,
 .text-header-h1,
 .page-header {
-    @apply font-header pb-1;
+    @apply pb-1 font-header;
 }
 
 .text-h3,
@@ -118,27 +118,27 @@ html {
     @apply font-bold;
 }
 .prose h1 {
-    @apply text-h1 font-bold mb-3;
+    @apply mb-3 font-bold text-h1;
 }
 .prose h2 {
-    @apply text-h3 md:text-h2 font-bold mb-3;
+    @apply mb-3 font-bold text-h3 md:text-h2;
 }
 .prose h3 {
-    @apply text-h3 font-bold mb-3;
+    @apply mb-3 font-bold text-h3;
 }
 .prose h4 {
-    @apply text-h4 font-bold mb-2;
+    @apply mb-2 font-bold text-h4;
 }
 .prose h5 {
-    @apply text-lg font-bold mb-1;
+    @apply mb-1 text-lg font-bold;
 }
 .prose h6 {
-    @apply text-base font-bold mb-1;
+    @apply mb-1 text-base font-bold;
 }
 
 /* To be used with an inline background image (dark) */
 .bg-pattern {
-    @apply bg-cover text-white;
+    @apply text-white bg-cover;
 }
 
 /* Button */
@@ -236,7 +236,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 
 .sticky-menu,
 .menu-container {
-    @apply text-primary-300  bg-neutral-100 relative;
+    @apply relative text-primary-300 bg-neutral-100;
 }
 
 .menu-container .container {
@@ -244,7 +244,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 }
 
 .home-header {
-    @apply text-white font-bold;
+    @apply font-bold text-white;
     background-size: 1000px;
 }
 
@@ -263,7 +263,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 
 
 .about-header--img {
-    @apply md:mx-auto md:my-auto relative z-10;
+    @apply relative z-10 md:mx-auto md:my-auto;
 }
 
 .header-content {
@@ -284,7 +284,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 /* Footer */
 .footer {
     background-size: 800px;
-    @apply bg-red text-white;
+    @apply text-white bg-red;
 }
 .footer-content {
     @apply relative pb-10;
@@ -297,7 +297,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     background-size: 560px;
 }
 .footer .text-h3 {
-    @apply font-header uppercase text-h2;
+    @apply uppercase font-header text-h2;
 }
 .subfooter {
     @apply bg-yellow text-primary-500;
@@ -336,15 +336,19 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 }
 
 .figures span {
-    @apply font-header text-3xl;
+    @apply text-3xl font-header;
 }
 
 .testimonials-slider--description {
     @apply font-bold;
 }
 details > summary {
-    @apply border-t border-white list-none;
+    @apply list-none border-t border-white;
 }
 details > summary::-webkit-details-marker {
     display: none;
+}
+
+.test-class {
+    @apply font-sans;
 }
