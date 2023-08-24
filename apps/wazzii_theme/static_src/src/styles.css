@@ -348,7 +348,3 @@ details > summary {
 details > summary::-webkit-details-marker {
     display: none;
 }
-
-.test-class {
-    @apply font-sans;
-}

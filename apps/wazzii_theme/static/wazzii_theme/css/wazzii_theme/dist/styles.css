@@ -2995,10 +2995,6 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
-.test-class{
-  font-family: work-sans, sans-serif;
-}
-
 .after\:hidden::after{
   content: var(--tw-content);
   display: none;
