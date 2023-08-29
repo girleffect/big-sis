@@ -2698,8 +2698,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  background-size: 533px;
-  background-repeat: repeat;
+  /* background-size: 100%; */
 }
 
 .home-header .left-col--img{
@@ -2998,8 +2997,6 @@ details > summary::-webkit-details-marker {
 
 #about-header{
   /* background-size:60%; */
-  background-size: 533px;
-  background-repeat: repeat;
 }
 
 .after\:hidden::after{

@@ -245,8 +245,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 
 .home-header {
     @apply font-bold text-white;
-    background-size: 533px;
-    background-repeat: repeat;
+    /* background-size: 100%; */
 }
 
 .home-header .left-col--img {
@@ -352,6 +351,4 @@ details > summary::-webkit-details-marker {
 
 #about-header{
     /* background-size:60%; */
-    background-size: 533px;
-    background-repeat: repeat;
 }
