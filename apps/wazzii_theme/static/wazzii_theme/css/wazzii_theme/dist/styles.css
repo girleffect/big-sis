@@ -2698,7 +2698,8 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  background-size: 1000px;
+  background-size: 533px;
+  background-repeat: repeat;
 }
 
 .home-header .left-col--img{
@@ -2894,9 +2895,9 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   bottom: 0px;
   left: 0px;
   display: block;
-  height: 58px;
+  height: 80px;
   width: 100%;
-  background: url("../../../img/circles-pattern-red.jpg");
+  background: url("../../../img/circles-pattern-red.svg");
   background-size: 560px;
 }
 
@@ -2996,7 +2997,9 @@ details > summary::-webkit-details-marker {
 }
 
 #about-header{
-  background-size:60%;
+  /* background-size:60%; */
+  background-size: 533px;
+  background-repeat: repeat;
 }
 
 .after\:hidden::after{
