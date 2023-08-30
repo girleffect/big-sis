@@ -247,6 +247,21 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     @apply font-bold text-white;
     /* background-size: 100%; */
 }
+.home-header--content{
+    text-shadow:0 0 15px #f57a22, 10px 0 15px #f57a22, 0 10px 15px #f57a22,-10px 0 15px #f57a22, 0 -10px 15px #f57a22;
+
+}
+
+
+.home-header--links a{
+    img{
+        @apply w-[60px];
+    }
+    span{
+
+        @apply text-base;
+    }
+}
 
 .home-header .left-col--img {
     @apply w-[calc(100%+80px)] -ml-5 max-w-none -mt-12 md:max-lg:-mt-16;
@@ -273,7 +288,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     }
     &:before {
         @apply bg-cover w-[100vw] h-[50%] bg-center  bg-no-repeat block absolute z-0 top-[2%]
-        max-md:h-[60%]  max-md:-translate-y-[5%] 
+        max-md:h-[750px]  max-md:-translate-y-[5%] 
         max-lg:-translate-y-[12%]  max-lg:left-0 max-lg:-top-[2%]
         lg:w-[100vw] lg:h-[250%] lg:top-[50%] lg:right-0 lg:-translate-y-[50%] lg:bg-contain  lg:bg-right;
         content: "";
@@ -294,7 +309,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     @apply w-full h-[80px] block absolute bottom-0 left-0;
 
     background: url("../../../img/circles-pattern-red.svg");
-    background-size: 560px;
+    background-size: 300px;
 }
 .footer .text-h3 {
     @apply uppercase font-header text-h2;
