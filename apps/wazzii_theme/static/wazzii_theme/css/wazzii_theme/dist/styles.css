@@ -3471,6 +3471,10 @@ details > summary::-webkit-details-marker {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
+  .lg\:justify-start{
+    justify-content: flex-start;
+  }
+
   .lg\:gap-0{
     gap: 0px;
   }
