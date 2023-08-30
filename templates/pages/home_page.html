@@ -4,21 +4,30 @@
 {% block content %}
 <!-- #region HEADER -->
 
-<header class="overflow-hidden bg-cover bg-dark text-white md:min-h-screen md:flex md:flex-col md:align-center md:justify-center" {% if page.header_background_image %}{% for block in page.header_background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"{% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"{% endif %}{% endfor %}{% endif %}>
+<header class="home-header overflow-hidden md:flex md:flex-col md:align-center md:justify-center" {% if page.header_background_image %}{% for block in page.header_background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"{% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"{% endif %}{% endfor %}{% endif %}>
     {% include 'includes/main-nav.html' with darkbg='true' %}
     <!-- #region HEADER CONTENT -->
     <div class="container grid grid-cols-1 lg:grid-cols-12  items-center py-10 md:py-16 my-auto md:flex-row">
         {% if page.header_image %}
             {% for block in page.header_image %}
                 {% if block.block_type == 'Image' %}
-                    <img class="lg:col-span-5 lg:order-2 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto"  src="{% image_url block.value 'fill-525x525' %}" alt="">
+                    <img class="lg:col-span-5 lg:order-2 max-lg:mb-5 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto right-col--img"  src="{% image_url block.value 'width-525' %}" alt="">
                 {% elif block.block_type == 'Document' %}
-                    <img class="lg:col-span-5 lg:order-2 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto"  src="{{ block.value.file.url }}" alt="">
+                    <img class="lg:col-span-5 lg:order-2 max-lg:mb-5 max-lg:max-h-[40vh] max-md:max-w-[70vw] mx-auto"  src="{{ block.value.file.url }}" alt="">
                 {% endif %}
             {% endfor %}
         {% endif %}
 
         <div class="lg:col-span-7 text-center lg:pr-20 lg:text-left lg:order-1">
+            {% if page.header_left_side_image %}
+                {% for block in page.header_left_side_image %}
+                    {% if block.block_type == 'Image' %}
+                        <img class="left-col--img mb-5"  src="{% image_url block.value 'width-900' %}" alt="">
+                    {% elif block.block_type == 'Document' %}
+                        <img class="left-col--img mb-5"  src="{{ block.value.file.url }}" alt="">
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
             {% if page.header_title %}
                 <h1 class="mb-4 font-bold text-header-h1">
                     {{ page.header_title|linebreaksbr }}
@@ -34,7 +43,7 @@
                 {% if page.whatsapp_link and not moya_flag %}
                     <a href="{{ page.whatsapp_link }}" target="_blank" class="hover:scale-105 transition-transform"><img
                             class='mx-5 w-11 '
-                            src="{{ STATIC_URL }}img/icons/whatsapp.png" alt="">
+                            src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/whatsapp.png" alt="">
                         {% if page.whatsapp_link_text %}
                             <span class="text-xs text-center block mt-2">{{ page.whatsapp_link_text|linebreaksbr }}</span>
                         {% endif %}
@@ -42,7 +51,7 @@
                 {% endif %}
                 {% if page.messenger_link and not moya_flag %}
                     <a href="{{ page.messenger_link }}" target="_blank" class="hover:scale-105 transition-transform"><img class='mx-5 w-11 '
-                            src="{{ STATIC_URL }}img/icons/messenger.png" alt="">
+                            src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/messenger.png" alt="">
                             {% if page.messenger_link_text %}
                                 <span class="text-xs text-center block mt-2">{{ page.messenger_link_text|linebreaksbr }}</span>
                              {% endif %}
@@ -50,7 +59,7 @@
                 {% endif %}
                 {% if page.moya_link %}
                     <a href="{{ page.moya_link }}" target="_blank" class="hover:scale-105 transition-transform"><img class='mx-5 w-11 '
-                            src="{{ STATIC_URL }}img/icons/app.png" alt="">
+                            src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/app.png" alt="">
                         {% if page.moya_link_text %}
                             <span class="text-xs text-center block mt-2">{{ page.moya_link_text|linebreaksbr }}</span>
                         {% endif %}

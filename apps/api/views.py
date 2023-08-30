@@ -33,8 +33,11 @@ class ServicesViewSet(mixins.ListModelMixin,
             queryset = ServicePage.objects.filter(service_type__id=service_type_id)
         else:
             queryset = ServicePage.objects.all()
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
+
+        page = self.paginate_queryset(queryset)
+        serializer = self.get_serializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
+        #return Response(serializer.data)
 
 # A Viewset responsible for listing all the service pages(clinics) locations.
 class ServiceLocationViewSet(viewsets.ReadOnlyModelViewSet):

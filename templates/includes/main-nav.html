@@ -1,21 +1,20 @@
 {% load helpers_tags wagtailcore_tags %}
 {% get_in_menu_pages request as menu_items %}
-<div class="transition-all z-20" :class="{'fixed w-full bg-white top-0 !border-neutral-300' : stickyMenu }">
+<div class="menu-container transition-all z-20" :class="{'!fixed w-full bg-white top-0 !border-neutral-300' : stickyMenu }">
     <div class="container flex space-around md:py-5 py-4 justify-between border-b  max-md:flex-col {% if darkbg %}border-white {% else %}border-neutral-300{% endif %}">
         <a href="/">
             {% if darkbg %}
-                <img class="h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3"  :class="{'hidden' : stickyMenu }"   src="{{STATIC_URL}}img/logobigsis.png" alt="Big Sis Logo">
-                <img class="h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3"  :class="{'hidden' : !stickyMenu }"   src="{{STATIC_URL}}img/logobigsis-dark.png" alt="Big Sis Logo">
+                <img class="nav-logo"  :class="{'hidden' : stickyMenu }" src="{{STATIC_URL}}{{ THEME_URL }}img/logo.png" alt="Big Sis Logo">
+                <img class="nav-logo"  :class="{'hidden' : !stickyMenu }" src="{{STATIC_URL}}{{ THEME_URL }}img/logo-dark.png" alt="Big Sis Logo">
             {% else %}
-                <img class="h-9 md:h-10 md:h-9 max-md:mx-auto max-md:mb-3"  src="{{STATIC_URL}}img/logobigsis-dark.png" alt="Bis Sis Logo">
+                <img class="nav-logo"  src="{{STATIC_URL}}{{ THEME_URL }}img/logo-dark.png" alt="Bis Sis Logo">
             {% endif %}
         </a>
-        <nav class="flex items-center max-md:justify-center">
+        <nav class="flex items-center max-md:justify-center nav-items">
             <ul class="text-center md:text-left">
                 {% for menu_item in menu_items %}
-                <a class="text-base mx-2 md:mx-3 lg:ml-12 border-b-4 hover:border-primary-500 transition-colors duration-300 {% if darkbg %}hover:border-white{% else %} hover:border-primary-500 {% endif %}  {% if page.id == menu_item.id %} border-primary-500 {% else %} border-transparent {% endif %}" href="{% pageurl menu_item %}" :class="{'text-black  hover:!border-primary-500' : stickyMenu }">
-                    {{ menu_item.title }}
-                </a>
+                <a class="text-base mx-2 md:mx-3 lg:ml-12 border-b-4 hover:border-primary-500 transition-colors duration-300 {% if darkbg %}hover:border-white{% else %} hover:border-primary-500 {% endif %}  {% if page.id == menu_item.id %} border-primary-500 {% else %} border-transparent {% endif %}" href="{% pageurl menu_item %}" :class="{'sticky-menu' : stickyMenu }">
+                    {{ menu_item.title }}</a>
                 {% endfor %}
             </ul>
         </nav>

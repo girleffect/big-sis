@@ -1,10 +1,10 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<section class="bg-secondary py-16 lg:py-24 text-center text-white justify-center" x-data="{ modalOpen: false}">
+<section class="bg-dark-section py-16 lg:py-24 text-center text-white justify-center latest-posts" x-data="{ modalOpen: false}">
     <div class="container  md:px-6">
         <h2 class="text-h2 font-bold mb-3">{{ value.title }}</h2>
         <div class="swiper social-posts-slider">
-            <ul class="{% if not moya_flag %} swiper-wrapper justify-center {% elif moya_flag %}grid grid-cols-2 place-content-center md:grid-cols-3 lg:grid-cols-5 gap-4{% endif %}">
+            <ul class="{% if not moya_flag %} swiper-wrapper  {% elif moya_flag %}grid grid-cols-2 place-content-center md:grid-cols-3 lg:grid-cols-5 gap-4{% endif %}">
 
                 {% for post in value.posts %}
                 <div class="swiper-slide relative">
@@ -33,7 +33,7 @@
                 x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300 transform"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                class="fixed inset-0 transition-opacity bg-secondary bg-opacity-40" aria-hidden="true">
+                class="fixed inset-0 transition-opacity bg-dark-section bg-opacity-40" aria-hidden="true">
             </div>
             <!-- #endregion MODAL OVERLAY -->
           
@@ -83,42 +83,70 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         // sliderArrows.classList.remove('hidden');
-        const swiper = new Swiper('.social-posts-slider', {
-            // Optional parameters
-            loop: true,
-            slidesPerView: 1.5,
-            centeredSlides: true,
-            spaceBetween: 20,
-            initialSlide: 2,
-            // centeredSlides:true,
+        console.log(document.querySelectorAll(".social-posts-slider .swiper-slide").length);
+        if (document.querySelectorAll(".social-posts-slider .swiper-slide").length == 1) {
+            const swiper = new Swiper('.social-posts-slider', {
+                // Optional parameters
+                // loop: true,
+                initialSlide: 0,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                 
+                           breakpoints: {
+                    // // when window width is >= 320px
+                    // 0: {
+                    //     slidesPerView:1.5,
+                    //     spaceBetween: 20
 
+                    //     },
+                    //     // when window width is >= 480px
 
-            breakpoints: {
-                // // when window width is >= 320px
-                // 0: {
-                //     slidesPerView:1.5,
-                //     spaceBetween: 20
+                    748: {
+                        slidesPerView: 3,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-                //     },
-                //     // when window width is >= 480px
+                    },
+                    1200: {
+                        slidesPerView: 5,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-                748: {
-                    slidesPerView: 3,
-                    loop: false,
-                    centeredSlides: false,
-                    spaceBetween: 24
+                    },
 
-                },
-                1200: {
-                    slidesPerView: 5,
-                    loop: false,
-                    centeredSlides: false,
-                    spaceBetween: 24
+                }
+            });}
+            else{
+            const swiper = new Swiper('.social-posts-slider', {
+                // Optional parameters
+                // loop: true,
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+                centeredSlides: true,
+                freeMode:true,
+                // loopedSlides:3,
+                breakpoints: {
+                
+                    748: {
+                        slidesPerView: 3,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-                },
+                    },
+                    1200: {
+                        slidesPerView: 5,
+                        loop: false,
+                        centeredSlides: false,
+                        spaceBetween: 24
 
-            }
-        });
+                    },
+
+                }
+            });
+        }
     });
 
 </script>

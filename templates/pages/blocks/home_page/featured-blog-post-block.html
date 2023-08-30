@@ -6,7 +6,7 @@
     {% get_latest_blog_post as post %}
 {% endif %}
 
-<section class="bg-secondary group">
+<section class="bg-dark-section group">
     <a class="container flex items-center justify-between py-5" href="{% pageurl post %}">
         <div class="flex">
             {% if post.image %}
@@ -24,7 +24,7 @@
         </div>
 
         <div>
-            <img  class='relative left-0 w-5 transition-all duration-300 group-hover:left-4' src="{{STATIC_URL}}img/arrow-right.png" alt="">
+            <img  class='relative left-0 w-5 transition-all duration-300 group-hover:left-4' src="{{STATIC_URL}}{{ THEME_URL }}img/arrow-right.png" alt="">
         </div>
 
     </a>

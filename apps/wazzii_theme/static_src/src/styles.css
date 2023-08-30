@@ -1,0 +1,354 @@
+@import url("https://use.typekit.net/anu8qwa.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@font-face {
+    font-family: bn-dime;
+    src: url(../../../fonts/bn-dime-display.otf);
+    font-weight: 800;
+}
+@font-face {
+    font-family: thunder;
+    src: url(../../../fonts/thunder.ttf);
+    font-weight: 800;
+}
+
+/* Debugging Elements */
+.debug-screens::before {
+    font-size: 2em;
+}
+[x-cloak] {
+    display: none !important;
+}
+
+/* Global Typography */
+html {
+    font-size: 20px;
+    line-height: 24px;
+    /* font-family: fedra-sans, system-ui, sans-serif; */
+}
+
+/* Homepage Header Typography */
+.text-header-h1 {
+    @apply uppercase;
+    font-size: 45px;
+    line-height: 45px;
+    letter-spacing: 2%;
+}
+.text-header-subtitle {
+    font-size: 23px;
+    line-height: 31px;
+    @apply tracking-tight;
+}
+
+@media screen(md) {
+    .text-header-h1 {
+        font-size: 57px;
+        line-height: 58px;
+    }
+    .text-header-subtitle {
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+@media screen(xl) {
+    .text-header-h1 {
+        font-size: 58px;
+        line-height: 60px;
+    }
+    .text-header-subtitle {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+@media screen(2xl) {
+    .text-header-h1 {
+        font-size: 63px;
+    }
+    .text-header-subtitle {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+/* Page Typography */
+.page-header {
+    @apply mb-3 font-bold text-h3 md:text-h2 xl:text-h1 text-primary-500;
+}
+.back-button {
+    @apply flex items-center gap-2 mb-4 transition-all text-primary-500 hover:gap-3 hover:-ml-1;
+}
+
+/* Styling for Richtext Elements */
+.prose a {
+    @apply text-primary-600;
+}
+.prose iframe {
+    width: 100%;
+}
+.prose p,
+.prose ol,
+.prose ul {
+    @apply mt-2 text-base;
+}
+.prose ol li,
+.prose ul li {
+    @apply mb-4;
+}
+
+.text-h1,
+.text-h2,
+.text-h3,
+.text-header-h1,
+.page-header {
+    @apply pb-1 font-header;
+}
+
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6 {
+    @apply font-bold;
+}
+
+.prose b {
+    @apply font-bold;
+}
+.prose h1 {
+    @apply mb-3 font-bold text-h1;
+}
+.prose h2 {
+    @apply mb-3 font-bold text-h3 md:text-h2;
+}
+.prose h3 {
+    @apply mb-3 font-bold text-h3;
+}
+.prose h4 {
+    @apply mb-2 font-bold text-h4;
+}
+.prose h5 {
+    @apply mb-1 text-lg font-bold;
+}
+.prose h6 {
+    @apply mb-1 text-base font-bold;
+}
+
+/* To be used with an inline background image (dark) */
+.bg-pattern {
+    @apply text-white bg-cover;
+}
+
+/* Button */
+.button {
+    background-image: url("../../../img/button-pattern.png");
+    background-color: #97e4e4;
+    @apply px-4 py-3 rounded text-black font-bold text-[18px]
+     inline-block mt-5 inline-flex items-center gap-2 
+    hover:text-white transition-all duration-100 ease-in;
+}
+
+.button:hover {
+    background-image: url("../../../img/button-pattern-hover.png");
+    background-color: #633db3;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        max-height: 0;
+        opacity: 0;
+    }
+    100% {
+        max-height: 10000px;
+        opacity: 1;
+    }
+}
+@keyframes fadeOutUp {
+    0% {
+        max-height: 0;
+        opacity: 0;
+    }
+    100% {
+        max-height: 10000px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0%,
+    20% {
+        opacity: 0;
+    }
+    30%,
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.letschat {
+    z-index: 100;
+    animation: fadeout 8s forwards;
+}
+
+/* Addressing white space between two white sections */
+/* every second section without a background, that follows a section without a background, gets a light gray colour */
+section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern)
+    + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern):not(:nth-of-type(2n)) {
+    @apply bg-neutral-100;
+}
+
+section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-primary-500 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-primary-600 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern),
+section.bg-pattern + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
+    @apply bg-white;
+}
+
+/* excluding 
+section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-500 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-primary-600 + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern), section.bg-pattern + section:not(.bg-dark-section):not(.bg-primary-500):not(.bg-primary-600):not(.bg-pattern) {
+    @apply bg-white;
+} */
+
+.bg-dark-section h1,
+.bg-dark-section h2,
+.bg-dark-section h3,
+.bg-dark-section .text-h1,
+.bg-dark-section .text-h2,
+.bg-dark-section .text-h3 {
+    @apply text-yellow;
+}
+
+/* Headers */
+.nav-logo {
+    @apply h-10 md:h-10 max-md:mx-auto max-md:mb-3;
+}
+
+.nav-items a {
+    @apply font-logo text-xl tracking-wider mx-1 md:mx-2.5 text-primary-300 hover:border-yellow;
+}
+
+.sticky-menu,
+.menu-container {
+    @apply relative text-primary-300 bg-neutral-100;
+}
+
+.menu-container .container {
+    border-bottom: 0 !important;
+}
+
+.home-header {
+    @apply font-bold text-white;
+    /* background-size: 100%; */
+}
+
+.home-header .left-col--img {
+    @apply w-[calc(100%+80px)] -ml-5 max-w-none -mt-12 md:max-lg:-mt-16;
+
+    /* margin-left:-20px; */
+}
+.home-header .right-col--img {
+    margin-top: auto;
+    margin-bottom: -80px;
+}
+.home-header p {
+    position: relative;
+}
+
+
+.about-header--img {
+    @apply relative z-10 md:mx-auto md:my-auto;
+}
+
+.header-content {
+    @apply lg:relative;
+    > * {
+        @apply relative z-10;
+    }
+    &:before {
+        @apply bg-cover w-[100vw] h-[50%] bg-center  bg-no-repeat block absolute z-0 top-[2%]
+        max-md:h-[60%]  max-md:-translate-y-[5%] 
+        max-lg:-translate-y-[12%]  max-lg:left-0 max-lg:-top-[2%]
+        lg:w-[100vw] lg:h-[250%] lg:top-[50%] lg:right-0 lg:-translate-y-[50%] lg:bg-contain  lg:bg-right;
+        content: "";
+        background-image: url("../../../img/curve.svg");
+    }
+}
+
+/* Footer */
+.footer {
+    background-size: 800px;
+    @apply text-white bg-red;
+}
+.footer-content {
+    @apply relative pb-10;
+}
+.footer-content:after {
+    content: "";
+    @apply w-full h-[80px] block absolute bottom-0 left-0;
+
+    background: url("../../../img/circles-pattern-red.svg");
+    background-size: 560px;
+}
+.footer .text-h3 {
+    @apply uppercase font-header text-h2;
+}
+.subfooter {
+    @apply bg-yellow text-primary-500;
+}
+
+/* Sections  Style differences*/
+.bg-dark-section {
+    position: relative;
+}
+
+/* .latest-posts {
+    @apply relative pb-32;
+
+    &:after {
+        content: "";
+        @apply w-full block h-[60px]  left-0 bottom-0 absolute;
+        background: url("../../../img/circles-pattern.jpg");
+        background-size: 510px;
+    }
+} */
+
+.faqs .grid {
+    @apply divide-pink-60/[.3] border-pink-60/[.3];
+}
+
+.timeline {
+    @apply bg-primary-500;
+}
+
+.service-thumbnail {
+    @apply hover:border-cyan;
+}
+
+.category-button {
+    @apply rounded;
+}
+
+.figures span {
+    @apply text-3xl font-header;
+}
+
+.testimonials-slider--description {
+    @apply font-bold;
+}
+details > summary {
+    @apply list-none border-t border-white;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+#about-header{
+    /* background-size:60%; */
+}

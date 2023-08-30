@@ -12,8 +12,8 @@
         <!-- #region STATS -->
         <div class="grid grid-cols-3 gap-12">
             {% for key_figure in value.key_figures %}
-                <p class="flex items-center max-md:flex-col text-sm">
-                    <span class="text-4xl md:text-5xl text-primary-500 font-bold pr-2">{{ key_figure.numbers }}</span>
+                <p class="figures flex items-center max-md:flex-col text-sm">
+                    <span class="md:text-5xl text-primary-500 font-bold pr-2">{{ key_figure.numbers }}</span>
                     {{ key_figure.description|linebreaksbr }}
                 </p>
             {% endfor %}
@@ -27,10 +27,10 @@
                     {% for testimonial in value.testimonials %}
                         <!-- #region TESTIMONIAL -->
                         <div class="swiper-slide">
-                            <p class="py-8 px-6 border-2 border-neutral-300 mt-10 rounded-[20px] relative">
+                            <p class=" testimonials-slider--description py-8 px-6 border-2 border-neutral-300 mt-10 rounded-[20px] relative">
                                 {{ testimonial.description|linebreaksbr }}
                                 <img class='w-10 absolute left-1/2 bottom-px translate-y-full -translate-x-16'
-                                     src="{{ STATIC_URL }}img/icons/speech-bubble-element.png" alt="">
+                                     src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/speech-bubble-element.png" alt="">
                             </p>
                             <div class="text-center mt-3">
                                 {% if testimonial.photo %}
@@ -48,10 +48,10 @@
             </div>
             {% if not moya_flag %} 
             <div class="swiper-button-prev after:hidden absolute !-left-6 md:!-left-9 top-1/2 lg:hidden">
-                <img class="w-4 " src="{{ STATIC_URL }}img/icons/slider-prev.png" alt="">
+                <img class="w-4 " src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/slider-prev.png" alt="">
             </div>
             <div class="swiper-button-next after:hidden absolute !-right-6 md:!-right-9 top-1/2 lg:hidden">
-                <img class="w-4" src="{{ STATIC_URL }}img/icons/slider-next.png" alt="">
+                <img class="w-4" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/slider-next.png" alt="">
             </div>
             {% endif %} 
         </div>
