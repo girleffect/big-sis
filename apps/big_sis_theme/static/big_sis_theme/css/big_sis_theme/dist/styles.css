@@ -2600,6 +2600,10 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   border-color: rgb(68 68 170 / var(--tw-border-opacity)) !important;
 }
 
+.home-header {
+  min-height: 100vh;
+}
+
 .home-header, header.has-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(32 32 32 / var(--tw-bg-opacity));

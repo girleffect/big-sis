@@ -213,6 +213,10 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
     @apply text-black  hover:!border-primary-500;
 }
 
+.home-header{
+    @apply min-h-screen;
+}
+
 .home-header, header.has-bg {
     @apply bg-dark-section text-white bg-cover;
 }
