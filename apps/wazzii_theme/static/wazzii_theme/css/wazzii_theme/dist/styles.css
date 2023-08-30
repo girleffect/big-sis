@@ -2701,6 +2701,19 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   /* background-size: 100%; */
 }
 
+.home-header--content{
+  text-shadow:0 0 15px #f57a22, 10px 0 15px #f57a22, 0 10px 15px #f57a22,-10px 0 15px #f57a22, 0 -10px 15px #f57a22;
+}
+
+.home-header--links a img{
+    width: 60px;
+  }
+
+.home-header--links a span{
+    font-size: 17px;
+    line-height: 26px;
+  }
+
 .home-header .left-col--img{
   margin-left: -1.25rem;
   margin-top: -3rem;
@@ -2814,7 +2827,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 
 @media not all and (min-width: 748px){
     .header-content:before{
-      height: 60%;
+      height: 750px;
     }
   }
 
@@ -2897,7 +2910,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
   height: 80px;
   width: 100%;
   background: url("../../../img/circles-pattern-red.svg");
-  background-size: 560px;
+  background-size: 300px;
 }
 
 .footer .text-h3{
@@ -3456,10 +3469,6 @@ details > summary::-webkit-details-marker {
 
   .lg\:grid-cols-6{
     grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .lg\:justify-start{
-    justify-content: flex-start;
   }
 
   .lg\:gap-0{

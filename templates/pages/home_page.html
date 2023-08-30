@@ -18,7 +18,7 @@
             {% endfor %}
         {% endif %}
 
-        <div class="lg:col-span-7 text-center lg:pr-20 lg:text-left lg:order-1">
+        <div class="home-header--content lg:col-span-7 text-center lg:pr-20 lg:text-left lg:order-1">
             {% if page.header_left_side_image %}
                 {% for block in page.header_left_side_image %}
                     {% if block.block_type == 'Image' %}
@@ -39,7 +39,7 @@
                 </p>
             {% endif %}
             <!-- #region HEADER LINKS -->
-            <div class="flex justify-center mt-6 lg:mt-12 lg:justify-start">
+            <div class="flex justify-center mt-6 lg:mt-12  home-header--links">
                 {% if page.whatsapp_link and not moya_flag %}
                     <a href="{{ page.whatsapp_link }}" target="_blank" class="hover:scale-105 transition-transform"><img
                             class='mx-5 w-11 '
