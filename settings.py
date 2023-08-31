@@ -69,6 +69,7 @@ if STAGE == 'local':
 
 # Wagtail settings
 WAGTAILADMIN_BASE_URL = 'http://bigsis.co.za'
+WAGTAIL_SITE_NAME = os.environ.get('WAGTAIL_SITE_NAME', 'Big Sis')
 WAGTAIL_ALLOW_UNICODE_SLUGS = False
 WAGTAIL_ENABLE_UPDATE_CHECK = False
 WAGTAIL_ENABLE_WHATS_NEW_BANNER = False
