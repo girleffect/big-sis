@@ -137,7 +137,8 @@ INTERNAL_IPS = [
 TAILWIND_FOLDER_NAME =TAILWIND_APP_NAME.split('.',1)[1]
 TAILWIND_CSS_PATH = f'{TAILWIND_FOLDER_NAME}/css/{TAILWIND_FOLDER_NAME}/dist/styles.css'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'apps',TAILWIND_FOLDER_NAME, 'static/'),
+    os.path.join(BASE_DIR,'apps','big_sis_theme', 'static/'),
+    os.path.join(BASE_DIR, 'apps', 'wazzii_theme', 'static/'),
 ]
 TEMPLATES[0]['OPTIONS']['context_processors'].append('apps.helpers.context_processors.export_theme_vars')
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
