@@ -1528,6 +1528,10 @@ select {
   height: 100%;
 }
 
+.h-5 {
+  height: 1.25rem;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
