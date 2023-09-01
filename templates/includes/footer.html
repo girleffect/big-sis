@@ -23,7 +23,7 @@
             {% endif %}
 
             <!-- TODO: Add links from backend -->
-            <div class="flex justify-center mt-10 gap-3">
+            <div class="flex justify-center mt-12 gap-4 items-center">
                 {% if global_settings.facebook_url %}
                 <a href="{{ global_settings.facebook_url }}"
                    target="_blank">
@@ -32,12 +32,14 @@
                          alt="">
                 </a>
                 {% endif %}
-                <a href="{{ global_settings.instagram }}"
+                {% if global_settings.instagram_url %}
+                <a href="{{ global_settings.instagram_url }}"
                    target="_blank">
                     <img class='h-7 transition-transform hover:scale-110'
                          src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/logos_instagram.png"
                          alt="">
                 </a>
+                {% endif %}
                 {% if global_settings.tiktok_url %}
                 <a href="{{ global_settings.tiktok_url }}"
                    target="_blank">
@@ -46,18 +48,22 @@
                          alt="">
                 </a>
                 {% endif %}
-                <a href="{{ global_settings.youtube }}"
+                {% if global_settings.youtube_url %}
+                <a href="{{ global_settings.youtube_url }}"
                    target="_blank">
-                    <img class='h-7 transition-transform hover:scale-110'
+                    <img class='h-6 transition-transform hover:scale-110'
                          src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/logos_youtube.png"
                          alt="">
                 </a>
-                <a href="{{ global_settings.twitter }}"
+                {% endif %}
+                {% if global_settings.twitter_url %}
+                <a href="{{ global_settings.twitter_url }}"
                    target="_blank">
-                    <img class='h-7 transition-transform hover:scale-110'
+                    <img class='h-6 transition-transform hover:scale-110'
                          src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/logos_twitter.png"
                          alt="">
                 </a>
+                {% endif %}
             </div>
         </section>
     </div>
