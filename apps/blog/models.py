@@ -35,6 +35,8 @@ class BlogIndexPage(Page):
             'Social_Media_Posts_Section': {'min_num': 0, 'max_num': 1},
         },
     )
+    show_posts_social_media_share_links = models.BooleanField(default=True)
+    show_posts_like_button = models.BooleanField(default=True)
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
@@ -48,6 +50,14 @@ class BlogIndexPage(Page):
                 FieldPanel('body'),
             ],
             heading="Body Section",
+            classname="collapsible"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('show_posts_social_media_share_links'),
+                FieldPanel('show_posts_like_button'),
+            ],
+            heading="Posts Share/Like Buttons",
             classname="collapsible"
         ),
 
@@ -189,6 +199,21 @@ class PostPage(Page):
         ObjectList(promote_panels, heading='Promote'),
         ObjectList(Page.settings_panels, heading='Settings'),
     ])
+
+    def show_social_media_share_buttons(self):
+        blog_index_page = BlogIndexPage.objects.live().first().specific
+        if blog_index_page:
+            if blog_index_page.show_posts_social_media_share_links:
+                return True
+        return False
+
+    def show_like_button(self):
+        blog_index_page = BlogIndexPage.objects.live().first().specific
+        if blog_index_page:
+            if blog_index_page.show_posts_like_button:
+                return True
+        return False
+
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context['siblings'] = PostPage.objects.sibling_of(self, inclusive=False).live().order_by(
