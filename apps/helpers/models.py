@@ -15,6 +15,9 @@ class GlobalSettings(BaseSetting,ClusterableModel):
     email = models.EmailField(blank=True)
     facebook_url = models.URLField(blank=True)
     tiktok_url = models.URLField(blank=True)
+    instagram_url = models.URLField(blank=True)
+    twitter_url = models.URLField(blank=True)
+    youtube_url = models.URLField(blank=True)
     background_image = StreamField([
         ('Image', ImageChooserBlock()),
         ('Document', DocumentChooserBlock()),
@@ -56,6 +59,9 @@ class GlobalSettings(BaseSetting,ClusterableModel):
                 FieldPanel('email'),
                 FieldPanel('facebook_url'),
                 FieldPanel('tiktok_url'),
+                FieldPanel('instagram_url'),
+                FieldPanel('twitter_url'),
+                FieldPanel('youtube_url'),
                 FieldPanel('background_image'),
                 FieldPanel('sitemap')
             ],
