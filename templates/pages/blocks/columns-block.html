@@ -1,5 +1,5 @@
 {% load wagtailcore_tags wagtailimages_tags %}
-<section class="py-16 lg:py-24">
+<section class="py-16 lg:py-24 {{ value.background_color }}">
     <div class="container grid md:grid-cols-12 md:gap-8">
         {% for block in value.columns %}
             <div class="col-span-12 lg:{{ block.width }}  mb-7 lg:mb-5">

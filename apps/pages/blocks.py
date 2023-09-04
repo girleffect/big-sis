@@ -198,6 +198,10 @@ class ColumnBlock(blocks.StructBlock):
 
 class ColumnsBlock(blocks.StructBlock):
     columns = blocks.ListBlock(ColumnBlock())
+    background_color = blocks.ChoiceBlock(choices=[
+        ('', 'White'),
+        ('bg-neutral-100', 'Gray'),
+    ], icon='cup',required=False,default='')
     hide_section = blocks.BooleanBlock(required=False,label='Hide Section')
     hide_on_moya = blocks.BooleanBlock(required=False,label='Hide Section on Moya App')
 

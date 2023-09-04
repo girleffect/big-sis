@@ -269,9 +269,9 @@ class ContentPage(Page):
     body = StreamField([
         ('Columns_Section', pages_blocks.ColumnsBlock()),
 
-    ],use_json_field=False, blank=True, min_num=0, max_num=1, collapsed=True,
+    ],use_json_field=False, blank=True, min_num=0, max_num=5, collapsed=True,
         block_counts={
-            'Columns_Section': {'min_num': 0, 'max_num': 1},
+            'Columns_Section': {'min_num': 0, 'max_num': 5},
         },
     )
     content_panels = Page.content_panels + [
