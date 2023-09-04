@@ -3,6 +3,7 @@
 {% check_for_moya_app as moya_flag %}  
 {% block content %}
     <!-- #region HEADER -->
+
     <header {% if page.header_background_image %} style="background-image:url('{% image_url page.header_background_image 'width-1920' %}'); "{% endif %}  class=" md:flex md:flex-col md:align-center md:justify-center overflow-hidden {% if page.header_background_image %} has-bg {% endif %}">
         {% include 'includes/main-nav.html' %}
         {% if page.header_title or page.header_subtitle or page.header_image %}
