@@ -29,7 +29,7 @@ class HomePage(Page):
     template_name = 'pages/home_page.html'
     header_title = models.CharField(max_length=255, blank=True)
     header_subtitle = models.TextField(blank=True)
-    header_background_color_hex_code = models.CharField(max_length=255,blank=True)
+    header_background_color_hex_code = models.CharField(max_length=255,blank=True,help_text='E.g #000000')
     header_background_image = StreamField([
         ('Image', ImageChooserBlock(help_text='Recommended aspect ratio: 16/9 and image dimensions: 1920x1080')),
         ('Document', DocumentChooserBlock()),
