@@ -4,7 +4,20 @@
 {% block content %}
 <!-- #region HEADER -->
 
-<header class="home-header overflow-hidden md:flex md:flex-col md:align-center md:justify-center" {% if page.header_background_image %}{% for block in page.header_background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"{% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"{% endif %}{% endfor %}{% endif %}>
+{% if bgColor %}
+<style>
+    .home-header--content {
+        text-shadow:
+        0 0 15px rgb(245,122,34),
+        10px 0 15px rgb(245,122,34),
+        0 10px 15px rgb(245,122,34),
+        -10px 0 15px rgb(245,122,34),
+        0 -10px 15px rgb(245,122,34);
+    }
+    </style>
+{% endif %}
+
+<header class="home-header overflow-hidden md:flex md:flex-col md:align-center md:justify-center" {% if page.header_background_image %}{% for block in page.header_background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}') {% if bgColor %}, linear-gradient(rgb(245,122,34), rgb(245,122,34) {% endif %}"{% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}'){% if bgColor %}, linear-gradient(rgb(245,122,34), rgb(245,122,34)) {% endif %}"{% endif %}{% endfor %}{% endif %}>
     {% include 'includes/main-nav.html' with darkbg='true' %}
     <!-- #region HEADER CONTENT -->
     <div class="container grid grid-cols-1 lg:grid-cols-12  items-center py-10 md:py-16 my-auto md:flex-row">

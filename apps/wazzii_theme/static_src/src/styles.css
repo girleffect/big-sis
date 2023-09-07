@@ -244,17 +244,12 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 }
 
 .home-header {
-    @apply font-bold text-white;
+    @apply font-bold text-white ;
+    
+
     /* background-size: 100%; */
 }
-.home-header--content {
-    text-shadow:
-        0 0 15px #f57a22,
-        10px 0 15px #f57a22,
-        0 10px 15px #f57a22,
-        -10px 0 15px #f57a22,
-        0 -10px 15px #f57a22;
-}
+
 
 .home-header--links a {
     img {
@@ -272,7 +267,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 .home-header .right-col--img {
     @apply mt-auto -mb-[80px];
 }
-@media (min-aspect-ratio: 16/9) and (max-height:900px) {
+@media (min-aspect-ratio: 16/9) and (max-height: 900px) {
     .home-header .right-col--img {
         @apply mb-auto;
     }
