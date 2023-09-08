@@ -2746,6 +2746,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 }
 
 .home-header{
+  min-height: 60vh;
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));

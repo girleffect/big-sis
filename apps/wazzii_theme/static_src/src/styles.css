@@ -244,7 +244,7 @@ section.bg-dark-section + section:not(.bg-dark-section):not(.bg-primary-500):not
 }
 
 .home-header {
-    @apply font-bold text-white ;
+    @apply font-bold text-white min-h-[60vh];
     
 
     /* background-size: 100%; */
