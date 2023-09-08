@@ -8,7 +8,8 @@ from wagtail.admin.panels import FieldPanel, TabbedInterface, ObjectList, MultiF
 from wagtail.fields import RichTextField,StreamField
 from apps.blog import blocks as blog_blocks
 import datetime
-
+from django.http import HttpResponse
+from apps.helpers.captcha import verify_captcha
 
 # The blog index page.This page is used for listing all the post pages.
 class BlogIndexPage(Page):
@@ -175,6 +176,7 @@ class PostPage(Page):
     )
     preview_text = models.TextField(blank=True)
     text = RichTextField(blank=True)
+    hit_counter = models.PositiveIntegerField(default=1)
     content_panels = Page.content_panels + [
         FieldPanel('published_on'),
         FieldPanel('image'),
@@ -226,6 +228,29 @@ class PostPage(Page):
         today = datetime.datetime.today()
         if published_on > today and request.user.is_anonymous:
             raise Http404
+
+        if f'user_has_liked_post_{self.id}' in request.session:
+            context['user_has_liked_post'] = 'true'
+        else:
+            context['user_has_liked_post'] = 'false'
+
+
+        if 'update_hit_counter' in request.GET:
+            captcha_token = request.GET.get('captcha_token', None)
+            if captcha_token:
+                captcha_verified = verify_captcha(captcha_token)
+                if captcha_verified:
+                    add_to_hit_counter = request.GET.get('update_hit_counter')
+                    if add_to_hit_counter == 'true':
+                        if not f'user_has_liked_post_{self.id}' in request.session:
+                            self.hit_counter += 1
+                            request.session[f'user_has_liked_post_{self.id}'] = True
+                    else:
+                        if f'user_has_liked_post_{self.id}' in request.session:
+                            del request.session[f'user_has_liked_post_{self.id}']
+                            self.hit_counter -= 1
+                    self.save()
+            return HttpResponse(self.hit_counter)
         return render(
             request,
             self.template_name,
