@@ -251,6 +251,7 @@ class PostPage(Page):
                             self.hit_counter -= 1
                     self.save()
             return HttpResponse(self.hit_counter)
+        context['absolute_uri'] = request.build_absolute_uri()
         return render(
             request,
             self.template_name,

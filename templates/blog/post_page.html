@@ -121,7 +121,7 @@
                             }
                         };
 
-                        xmlhttp.open("GET", "{{ page.full_url }}?update_hit_counter=" + activeClass + '&captcha_token=' + token, false);
+                        xmlhttp.open("GET", "{{ absolute_uri }}?update_hit_counter=" + activeClass + '&captcha_token=' + token, false);
                         xmlhttp.send();
                     }
             </script>
