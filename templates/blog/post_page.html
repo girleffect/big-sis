@@ -95,6 +95,17 @@
 
             <script>
                     function onSubmit(){
+                        var likeButton = document.getElementById('like-button');
+                        var currentHitCounter  = document.getElementById("hitCounter").innerHTML;
+                        if (likeButton.classList.contains('text-white')){
+                            currentHitCounter--;
+                            document.getElementById("hitCounter").innerHTML = currentHitCounter;
+
+                        }else{
+                            currentHitCounter++
+                            document.getElementById("hitCounter").innerHTML = currentHitCounter;
+
+                        }
                         grecaptcha.execute();
                     }
                     function updatePostHitCounter(token) {
