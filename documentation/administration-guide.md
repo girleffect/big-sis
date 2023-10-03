@@ -55,7 +55,18 @@
    6.1 [Google Login](#google-login)
    
    6.2 [Enabling Google Login for Admin Users](#enabling-google-login-for-admin-users)
-    
+7. [Setting up Google Analytics via Google Tag Manager](#setting-up-google-analytics-via-google-tag-manager)
+   
+   7.1 [Step 1: Creating a Google Analytics account ](#step-1-creating-a-google-analytics-account)
+   
+   7.2 [Step 2: Finding your Measurement ID via your Google Analytics account ](#step-2-finding-your-measurement-id-via-your-google-analytics-account)
+   
+   7.3 [Step 3: Creating a Google Tag Manager account  ](#step-3-creating-a-google-tag-manager-account)
+
+   7.4 [Step 4: Creating a Google Tag through Google Tag  ](#step-4-creating-a-google-tag-through-google-tag)
+
+   7.5 [Step 5: Adding the Google Tag on the website ](#step-5-adding-the-google-tag-on-the-website)
+
 ## Page types
 Your website consists of a variety of page types. Each page type has different properties.<br>
 All page types have two edit tabs: the **Content tab** and the **Promote tab**.<br><br>
@@ -282,3 +293,71 @@ Admin users also have the option to login to the admin panel using their Google 
 Once you enable Google login you can login using your Google credentials and click on the **Google** button to login.     
 
 ![img_27.png](img_27.png)
+
+## Setting up Google Analytics via Google Tag Manager
+
+Setting up Google Analytics for your website can be done in five steps. You need to: 
+1.	Create a google analytics account 
+2.	Find your Measurement ID via your google analytics account
+3.	Create a google tag manager account 
+4.	Create a google tag via the google tag manager
+5.	Add the google tag on your website
+
+### Step 1: Creating a Google Analytics account 
+If you don’t already have a google analytics account, you can create one by visiting https://analytics.google.com/ . Follow the process to create your google analytics account. In case you already have a google analytics account just skip this step and go to step 2.
+
+### Step 2: Finding your Measurement ID via your Google Analytics account
+To be able to link your Google Analytics property to the tags you will be creating at step 4, you will need to find your property’s Measurement ID in your google analytics account. To find your Measurement ID you need to login to your google analytics account ( https://analytics.google.com/ ). Make sure that you are viewing the correct property, if you have more than one property, and then click Admin from the left side menu and then select Data Streams. (see image below)
+
+![img_28.png](img_28.png)
+
+Select the arrow button of your data stream. (see image below)
+
+![img_29.png](img_29.png)
+
+Now you should be viewing the data stream’s details and you can copy your Measurement ID so you can use it to setup a new tag during step 4. (see image below)
+
+![img_30.png](img_30.png)
+
+### Step 3: Creating a Google Tag Manager account 
+If you don’t already have a tag manager account, you can create one by visiting https://tagmanager.google.com/ . Follow the process to create your google tag manager account. In case you already have a google tag manager account just skip this step and go to step 4. 
+
+### Step 4: Creating a Google Tag through Google Tag 
+Once you login to your tag manager account ( https://tagmanager.google.com/ ), you can start creating tags. Select Tags from the left side menu and click New, to create a tag for your website. (see image below)
+
+![img_31.png](img_31.png)
+
+You can then rename the new Tag and click on the Tag Configuration. (see image below)
+
+![img_32.png](img_32.png)
+
+Select the Google Analytics option. (see image below)
+
+![img_33.png](img_33.png)
+
+You now need to paste the Measurement ID that you copied during step 2, into the Measurement ID field. Click Save to link your Tag to your Google Analytics.
+
+![img_34.png](img_34.png)
+
+The last thing you need to do for your tag to be complete is to setup triggering. By setting up triggers, you basically configure when the specific tag is triggered. To do this you need to click on the Triggering option and choose the triggers you wish from the list that will appear. (see images below)
+
+![img_35.png](img_35.png)
+
+![img_36.png](img_36.png)
+
+You will then be able to view the new tag and you need to click Submit.
+
+![img_37.png](img_37.png)
+
+### Step 5: Adding the Google Tag on the website
+You now need to copy the code of the tag and paste it on your website. To do this you should go to the Google Tag Manager https://tagmanager.google.com/ and select Admin. (see image below)
+
+![img_38.png](img_38.png)
+
+You then need to copy two pieces of code and paste them on your website. The first piece of code will be added in the head of the page and the second piece in the body. (see image below)
+
+![img_39.png](img_39.png)
+
+Once you copy the first piece of code you need to login to your website’s Admin Panel, select Settings on your admin menu, and then Global Settings. You then need to create a new Script, paste the code into the field and select the Position (head/body) from the dropdown list. Click Save to finish adding the code. Repeat the process for the second piece of code that will be placed in the body. (see image below)
+
+![img_40.png](img_40.png)
