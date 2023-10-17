@@ -326,3 +326,93 @@ class ContentPage(Page):
 
 
 
+# This page is used for creating general purpose pages but without navigation and footer.
+class ContentPageWithoutFooterAndNavBar(Page):
+    parent_page_types = ['pages.HomePage']
+    template_name = 'pages/content_page_without_footer_and_nav_bar.html'
+    header_title = models.CharField(max_length=255, blank=True)
+    header_subtitle = RichTextField(blank=True)
+    header_background_image = models.ForeignKey(
+        settings.WAGTAILIMAGES_IMAGE_MODEL,
+        verbose_name='Header background image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Recommended aspect ratio: 16/9 and image dimensions: 1920x1080'
+    )
+    header_image = models.ForeignKey(
+        settings.WAGTAILIMAGES_IMAGE_MODEL,
+        verbose_name='Header image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Recommended aspect ratio: 7/6 and image dimensions: 630x540'
+    )
+    seo_image = models.ForeignKey(
+        settings.WAGTAILIMAGES_IMAGE_MODEL,
+        verbose_name='Seo image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='The image displayed when a page gets posted on social media.'
+    )
+    body = StreamField([
+        ('Columns_Section', pages_blocks.ColumnsBlock()),
+
+    ],use_json_field=False, blank=True, min_num=0, max_num=5, collapsed=True,
+        block_counts={
+            'Columns_Section': {'min_num': 0, 'max_num': 5},
+        },
+    )
+    content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                FieldPanel('header_title'),
+                FieldPanel('header_subtitle'),
+                FieldPanel('header_background_image'),
+                FieldPanel('header_image'),
+            ],
+            heading="Header Section",
+            classname="collapsible"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('body'),
+            ],
+            heading="Body Section",
+            classname="collapsible"
+        ),
+
+    ]
+    promote_panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('slug'),
+                FieldPanel('seo_title'),
+                FieldPanel('search_description'),
+                FieldPanel('seo_image'),
+            ],
+            heading="For search engines",
+            classname="collapsible"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('show_in_menus'),
+            ],
+            heading="For site menus",
+            classname="collapsible"
+        ),
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(content_panels, heading='Content'),
+        ObjectList(promote_panels, heading='Promote'),
+        ObjectList(Page.settings_panels, heading='Settings'),
+    ])
+    class Meta:
+        verbose_name = "Content page without footer and nav bar"
+
+

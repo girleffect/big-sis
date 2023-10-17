@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags helpers_tags %}
+{% check_for_moya_app as moya_flag %}
+{% block global_settings %}
+{% endblock %}
+{% block content %}
+    <!-- #region HEADER -->
+
+    <header {% if page.header_background_image %} style="background-image:url('{% image_url page.header_background_image 'width-1920' %}'); "{% endif %}  class=" md:flex md:flex-col md:align-center md:justify-center overflow-hidden {% if page.header_background_image %} has-bg {% endif %}">
+        {% if page.header_title or page.header_subtitle or page.header_image %}
+            <!-- #region HEADER CONTENT -->
+            <div class="container py-10 lg:py-16 my-auto flex flex-col md:flex-row items-center grid grid-cols-2 gap-8">
+                <div class="header-content col-span-2 mb-9 md:mb-0 lg:col-span-1 lg:pr-20">
+                    {% if page.header_title %}
+                        <h1 class="page-header">
+                            {{ page.header_title }}
+                        </h1>
+                    {% endif %}
+                    {% if page.header_subtitle %}
+                        <div class="text-base">
+                            {{ page.header_subtitle|richtext }}
+                        </div>
+                    {% endif %}
+                </div>
+                {% if page.header_image %}
+                <div class="col-span-2 -mb-16 md:col-span-1  about-header--img ">
+                    <img class="w-full" src="{% image_url page.header_image 'fill-630x540' %}" alt="">
+                </div>
+                {% endif %}
+            </div>
+            <!-- #endregion HEADER CONTENT -->
+        {% endif %}
+    </header>
+    <!-- #endregion HEADER -->
+    {% for block in page.body %}
+    {% if not block.value.hide_section %}
+        {% if moya_flag %} 
+            {% if not block.value.hide_on_moya %}
+                {% include_block block %}
+            {% endif %} 
+         {% else %} 
+            {% include_block block %}
+         {% endif %}  
+    {% endif %}
+{% endfor %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
