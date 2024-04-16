@@ -60,8 +60,32 @@ INSTALLED_APPS.extend(
 
 STAGE = os.environ.get('STAGE',None)
 
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_HSTS_SECONDS = 31536000  # sets Strict-Transport-Security header
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True  # sets X-Content-Type-Options header
+SECURE_BROWSER_XSS_FILTER = True  # sets X-XSS-Protection header
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # sets X-Frame-Options header
+SECURE_REFERRER_POLICY = 'same-origin'  # sets Referrer-Policy header
+
 # MIDDLEWARE settings
-MIDDLEWARE.append("apps.pages.middleware.DatafreeMiddleware")
+MIDDLEWARE = [
+    "social_django.middleware.SocialAuthExceptionMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "apps.pages.middleware.DatafreeMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "csp.middleware.CSPMiddleware"
+]
+
+CSP_DEFAULT_SRC = ("'self'", "https:")
+
 if STAGE == 'local':
     MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
     MIDDLEWARE.pop(0)
@@ -108,8 +132,6 @@ LOGIN_URL = '/login/google-oauth2/'
 
 LOGIN_REDIRECT_URL = '/admin/'
 LOGOUT_REDIRECT_URL = '/'
-
-MIDDLEWARE.append("social_django.middleware.SocialAuthExceptionMiddleware")
 
 SOCIAL_AUTH_PIPELINE = (
     "social_core.pipeline.social_auth.social_details",
