@@ -63,3 +63,4 @@ Willow @ https://wheels-cdn.aldryn.net/pypi/buster-py39/willow/1.4.1/1646258273/
 YURL @ https://wheels-cdn.aldryn.net/pypi/buster-py39/yurl/1.0.0/1604448012/9c77962cac8c60b87450a17e6b3edfb3/YURL-1.0.0-py3-none-any.whl#md5=9c77962cac8c60b87450a17e6b3edfb3
 django-tailwind==3.5.0
 social-auth-app-django==5.2.0
+django-csp==3.8
