@@ -39,7 +39,6 @@ def get_latest_blog_posts(count):
 
 @register.simple_tag(takes_context=True)
 def check_for_moya_app(context):
-    if 'request' in context and hasattr(context['request'], 'session'):
-        if context['request'].session.get('moya') == True:
-            return True
+    if (context.request.session.get('moya') == True):
+        return True
     return False
