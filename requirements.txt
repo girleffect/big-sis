@@ -61,6 +61,6 @@ webencodings @ https://wheels-cdn.aldryn.net/pypi/buster-py39/webencodings/0.5.1
 webservices @ https://wheels-cdn.aldryn.net/pypi/buster-py39/webservices/0.7/1604448000/501e7234859b6a352d5de71b0b3a4e15/webservices-0.7-py3-none-any.whl#md5=501e7234859b6a352d5de71b0b3a4e15
 Willow @ https://wheels-cdn.aldryn.net/pypi/buster-py39/willow/1.4.1/1646258273/cd4927a6793ab3790ad53415672aa327/Willow-1.4.1-py2.py3-none-any.whl#md5=cd4927a6793ab3790ad53415672aa327
 YURL @ https://wheels-cdn.aldryn.net/pypi/buster-py39/yurl/1.0.0/1604448012/9c77962cac8c60b87450a17e6b3edfb3/YURL-1.0.0-py3-none-any.whl#md5=9c77962cac8c60b87450a17e6b3edfb3
-django-tailwind==3.5.0
+django-tailwind==3.8.0
 social-auth-app-django==5.2.0
 django-csp==3.8
