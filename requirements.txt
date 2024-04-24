@@ -41,7 +41,7 @@ l18n @ https://wheels-cdn.aldryn.net/pypi/buster-py39/l18n/2021.3/1638998044/f7e
 openpyxl @ https://wheels-cdn.aldryn.net/pypi/buster-py39/openpyxl/3.1.2/1678559714/7eaba2e0824633fca2adacd9bb53647a/openpyxl-3.1.2-py2.py3-none-any.whl#md5=7eaba2e0824633fca2adacd9bb53647a
 orderedmultidict @ https://wheels-cdn.aldryn.net/pypi/buster-py39/orderedmultidict/1.0.1/1604424068/bfef6a7487abc03b9fc1a65c7732b38b/orderedmultidict-1.0.1-py2.py3-none-any.whl#md5=bfef6a7487abc03b9fc1a65c7732b38b
 Pillow @ https://wheels-cdn.aldryn.net/pypi/buster-py39/pillow/9.4.0/1672697541/800376ec5112bed356f84346843cc8cb/Pillow-9.4.0-cp39-cp39-linux_x86_64.whl#md5=800376ec5112bed356f84346843cc8cb
-pip-reqs==0.12.0
+pip-reqs==0.10.0
 psycopg2 @ https://wheels-cdn.aldryn.net/pypi/buster-py39/psycopg2/2.9.5/1666701789/62134cdf7f38709d0646f92b1477812e/psycopg2-2.9.5-cp39-cp39-linux_x86_64.whl#md5=62134cdf7f38709d0646f92b1477812e
 python-dateutil @ https://wheels-cdn.aldryn.net/pypi/buster-py39/python-dateutil/2.8.2/1626265165/4c287e49f9df0354cba183d56af45dca/python_dateutil-2.8.2-py2.py3-none-any.whl#md5=4c287e49f9df0354cba183d56af45dca
 pytz @ https://wheels-cdn.aldryn.net/pypi/buster-py39/pytz/2022.7.1/1673706375/e626fa77b1513b2731b7750bd24465c7/pytz-2022.7.1-py3-none-any.whl#md5=e626fa77b1513b2731b7750bd24465c7
