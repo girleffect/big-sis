@@ -1,5 +1,6 @@
 {% extends "wagtailadmin/login.html" %}
 {% load i18n %}
 {% block submit_buttons %}
+    {{ block.super }}
     <a  href="/login/google-oauth2/"><button style="margin-top: 10px;" type="button" class="button">{% trans 'Google' %}</button></a>
 {% endblock %}
