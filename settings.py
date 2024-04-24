@@ -171,12 +171,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 ]
 
 # Logging settings
-ADMINS = (
-    ('Kyriakos Toumbas', 'webmaster@pixelactions.com'),
-    ('Nicolas Christofi', 'nicolas@pixelactions.com'),
-)
-MANAGERS = ADMINS
-
 
 LOGGING = {
     'version': 1,

@@ -9,7 +9,7 @@ class DatafreeMiddleware(object):
         moya_app_id = request.GET.get('x-binu-did', None)  
         #check domain for Moya App (iOS) 
         domain = request.META
-        if (not moya_app_id is None):
+        if (moya_app_id is not None):
             request.session['moya'] = True
         response = self.get_response(request)
         return response 
