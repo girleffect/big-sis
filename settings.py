@@ -80,11 +80,8 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "csp.middleware.CSPMiddleware"
+    "django.middleware.clickjacking.XFrameOptionsMiddleware"
 ]
-
-CSP_DEFAULT_SRC = ("'self'", "https:")
 
 if STAGE == 'local':
     MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
