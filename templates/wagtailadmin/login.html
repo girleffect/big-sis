@@ -26,6 +26,7 @@
             <input type="hidden" name="next" value="/admin/" />
 
             <div class="w-field__wrapper" data-field-wrapper>
+                {{ block.super }}
                 <a href="/login/google-oauth2/"><button style="margin-top: 10px;" type="button" class="button">Google</button></a>
             </div>
         </form>
