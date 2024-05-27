@@ -76,8 +76,8 @@ SECURE_REFERRER_POLICY = 'same-origin'  # sets Referrer-Policy header
 MIDDLEWARE = [
     "social_django.middleware.SocialAuthExceptionMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    "apps.pages.middleware.DatafreeMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "apps.pages.middleware.DatafreeMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware"
