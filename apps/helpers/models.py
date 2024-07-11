@@ -11,6 +11,7 @@ from wagtail.images.blocks import ImageChooserBlock
 # This class is used for providing an easy way to edit the footer content and to add scripts to the head and body of the html.
 @register_setting
 class GlobalSettings(BaseSetting,ClusterableModel):
+    ga_measurement_id = models.CharField(max_length=512, blank=True, null=True)
     text = models.TextField(blank=True)
     email = models.EmailField(blank=True)
     facebook_url = models.URLField(blank=True)
@@ -44,6 +45,7 @@ class GlobalSettings(BaseSetting,ClusterableModel):
     scripts_panel = [
         MultiFieldPanel(
             [
+                FieldPanel("ga_measurement_id"),
                 InlinePanel('scripts', label="Script"),
             ],
             heading="Scripts",
