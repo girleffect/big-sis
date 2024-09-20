@@ -3,6 +3,7 @@
 {% check_for_moya_app as moya_flag %}  
 {% block content %}
 <!-- #region HEADER -->
+{% display_sessions as sessions_now %}
 
 {% if page.header_background_color_hex_code %}
 <style>
@@ -85,6 +86,11 @@
     <!-- #endregion HEADER CONTENT -->
 </header>
 <!-- #endregion HEADER -->
+
+{% for key, value in sessions_now.items %}
+    <li>{{ key }}: {{ value }}</li>
+{% endfor %}
+    debug: {{ moya_flag}}
 {% for block in page.body %}
     {% if not block.value.hide_section %}
         {% if moya_flag %} 

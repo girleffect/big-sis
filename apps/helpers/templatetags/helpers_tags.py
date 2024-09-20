@@ -42,3 +42,12 @@ def check_for_moya_app(context):
     if 'request' in context and context['request'].session.get('moya') == True:
         return True
     return False
+
+
+@register.simple_tag(takes_context=True)
+def display_sessions(context):
+    if 'request' in context:
+        session_data = dict(context['request'].session.items())
+        print(session_data)
+        return session_data
+    return False
