@@ -14,6 +14,13 @@
                 {{ global_settings.text|linebreaksbr }}
             </h3>
             {% endif %}
+            {% if global_settings.external_url_text and global_settings.external_url %}
+            <a class="inline-flex text-base gap-2 hover:opacity-70 transition-opacity duration-300"
+               href="{{ global_settings.external_url }}">
+                <img class='mr-2 w-5 my-auto' loading="lazy" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/website.png" alt="">
+                {{ global_settings.external_url_text }}
+            </a>
+            {% endif %}
             {% if global_settings.email %}
             <a class="inline-flex text-base gap-2 hover:opacity-70 transition-opacity duration-300"
                href="mailto:{{ global_settings.email }}">
