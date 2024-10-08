@@ -6,7 +6,7 @@
         <div class="flex">
             {% if value.image %}
                 {% image value.image fill-80x80 format-jpeg as image %}
-                <img class="pr-4 rounded-sm w-16 my-auto md:w-14" src="{{ value.image.url }}" alt="">
+                <img class="pr-4 rounded-sm w-16 my-auto md:w-14" src="{{ image.url }}" alt="">
             {% endif %}
             <div class="">
                 <p class="text-xs {{value.sub_title_color}} uppercase">
