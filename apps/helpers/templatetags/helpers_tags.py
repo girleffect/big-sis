@@ -42,3 +42,7 @@ def check_for_moya_app(context):
     if 'request' in context and context['request'].session.get('moya') == True:
         return True
     return False
+
+@register.filter
+def user_has_admin_access(user):
+    return user.has_perm('wagtailadmin.access_admin')

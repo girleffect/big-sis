@@ -67,6 +67,44 @@ class KeyFiguresAndTestimonialsBlock(blocks.StructBlock):
         template = 'pages/blocks/about_page/key-figures-and-testimonials-block.html'
         icon = ''
 
+class QuickNavBlock(blocks.StructBlock):
+    page_url = blocks.PageChooserBlock(required=False, 
+                                                 help_text='Used for internal navigation. Will override external_url if set.')
+    external_url = blocks.URLBlock(required=False, help_text='Used for external navigation.')
+    image = ImageChooserBlock(required=False,help_text="Recommended aspect ratio: 1:1 and image dimensions: 80x80")
+    sub_title = blocks.CharBlock(required=False, max_length=50)
+    sub_title_color = blocks.ChoiceBlock(choices=[
+        ('text-white', 'White'),
+        ('text-black', 'Black'),
+        ('text-yellow', 'Yellow'),
+        ('text-primary-500', 'Primary'),
+        ('text-gray-700', 'Gray'),
+        ('text-gray-300', 'Light Gray'),
+    ], icon='cup',required=False,default='text-white')    
+    text = blocks.CharBlock(required=False, max_length=100)
+    text_color = blocks.ChoiceBlock(choices=[
+        ('text-white', 'White'),
+        ('text-black', 'Black'),
+        ('text-yellow', 'Yellow'),
+        ('text-primary-500', 'Primary'),
+        ('text-gray-700', 'Gray'),
+        ('text-gray-300', 'Light Gray'),
+    ], icon='cup',required=False,default='text-white')
+    background_color = blocks.ChoiceBlock(choices=[
+        ('bg-primary-500', 'Primary'),
+        ('bg-secondary-500', 'Secondary'),
+        ('bg-dark-section', 'Black'), 
+        ('bg-neutral-100', 'Gray'),
+    ], icon='cup',required=False,default='bg-primary-500')
+
+    hide_section = blocks.BooleanBlock(required=False,label='Hide Section')
+    hide_on_moya = blocks.BooleanBlock(required=False,label='Hide Section on Moya App')
+
+    class Meta:
+        template = 'pages/blocks/quick-nav-block.html'
+        icon = ''
+
+
 
 ### Home page blocks
 class FeaturedBlogPostBlock(blocks.StructBlock):

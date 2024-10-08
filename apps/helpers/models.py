@@ -14,6 +14,8 @@ class GlobalSettings(BaseSetting,ClusterableModel):
     ga_measurement_id = models.CharField(max_length=512, blank=True, null=True)
     text = models.TextField(blank=True)
     email = models.EmailField(blank=True)
+    external_url_text = models.CharField(max_length=50, blank=True)
+    external_url = models.URLField(blank=True)
     facebook_url = models.URLField(blank=True)
     tiktok_url = models.URLField(blank=True)
     instagram_url = models.URLField(blank=True)
@@ -58,6 +60,10 @@ class GlobalSettings(BaseSetting,ClusterableModel):
         MultiFieldPanel(
             [
                 FieldPanel('text'),
+                FieldRowPanel([
+                    FieldPanel('external_url_text'),
+                    FieldPanel('external_url'),
+                ]),
                 FieldPanel('email'),
                 FieldPanel('facebook_url'),
                 FieldPanel('tiktok_url'),

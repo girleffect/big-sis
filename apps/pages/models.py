@@ -80,13 +80,14 @@ class HomePage(Page):
         ('Columns_Section', pages_blocks.ColumnsBlock()),
         ('Social_Media_Posts_Section', pages_blocks.SocialMediaPostsBlock()),
         ('Latest_Blog_Posts_Section', pages_blocks.LatestBlogPostsBlock()),
-
+        ('Quick_Nav_Section', pages_blocks.QuickNavBlock()),
     ],use_json_field=False, blank=True, min_num=0, max_num=4, collapsed=True,
         block_counts={
             'Featured_Blog_Post_Section': {'min_num': 0, 'max_num': 1},
             'Columns_Section': {'min_num': 0, 'max_num': 1},
             'Social_Media_Posts_Section': {'min_num': 0, 'max_num': 1},
             'Latest_Blog_Posts_Section': {'min_num': 0, 'max_num': 1},
+            'Quick_Nav_Section': {'min_num': 0, 'max_num': 2},
         },
     )
     content_panels = Page.content_panels + [

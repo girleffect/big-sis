@@ -1,0 +1,28 @@
+{% load helpers_tags wagtailcore_tags wagtailimages_tags %}
+<!-- #region LATEST ARTICLE -->
+
+<section class="{{value.background_color}} group">
+    <a class="container flex items-center justify-between py-5" href="{% if value.page_url %} {% pageurl value.page_url %} {% elif value.external_url %} {{value.external_url}}{% endif %}">
+        <div class="flex">
+            {% if value.image %}
+                {% image value.image fill-80x80 format-jpeg as image %}
+                <img class="pr-4 rounded-sm w-16 my-auto md:w-14" src="{{ image.url }}" alt="">
+            {% endif %}
+            <div class="">
+                <p class="text-xs {{value.sub_title_color}} uppercase">
+                    {{ value.sub_title }}
+                </p>
+                <h3 class="{{value.text_color}} text-h5 mg:text-h4">                  
+                    {{ value.text }}
+                </h3>
+            </div>
+        </div>
+
+        <div>
+            <img  class='relative left-0 w-5 transition-all duration-300 group-hover:left-4' src="{{STATIC_URL}}{{ THEME_URL }}img/arrow-right.png" alt="">
+        </div>
+
+    </a>
+</section>
+
+<!-- #endregion LATEST ARTICLE -->

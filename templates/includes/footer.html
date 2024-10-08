@@ -2,8 +2,8 @@
 {% get_settings %}
 <!-- #region FOOTER -->
 {% with global_settings=settings.helpers.GlobalSettings %}
-{% if global_settings.background_image or global_settings.text or global_settings.email or global_settings.sitemap or global_settings.facebook_url or global_settings.tiktok_url %}
-<footer class="footer text-white text-center mt-auto"
+{% if global_settings.background_image or global_settings.text or global_settings.email or global_settings.sitemap or global_settings.facebook_url or global_settings.tiktok_url or global_settings.external_url_text or global_settings.external_url %}
+<footer class="footer text-white text-center mt-auto bg-primary-500"
         {% if global_settings.background_image %}{% for block in global_settings.background_image %}{% if block.block_type == 'Image' %}style="background:url('{% image_url block.value 'width-1920' %}')"
         {% elif block.block_type == 'Document' %}style="background-image:url('{{ block.value.file.url }}')"
         {% endif %}{% endfor %}{% endif %}>
@@ -14,12 +14,24 @@
                 {{ global_settings.text|linebreaksbr }}
             </h3>
             {% endif %}
+            {% if global_settings.external_url_text and global_settings.external_url %}
+            <div>
+                <a class="inline-flex text-base gap-2 hover:opacity-70 transition-opacity duration-300"
+                href="{{ global_settings.external_url }}">
+                    <img class='mr-2 w-5 my-auto' loading="lazy" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/website.png" alt="">
+                    {{ global_settings.external_url_text|linebreaksbr }}
+                </a>
+
+            </div>
+            {% endif %}
             {% if global_settings.email %}
-            <a class="inline-flex text-base gap-2 hover:opacity-70 transition-opacity duration-300"
-               href="mailto:{{ global_settings.email }}">
-                <img class='mr-2 w-5 my-auto' loading="lazy" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/mail.png" alt="">
-                Email us at {{ global_settings.email }}
-            </a>
+            <div>
+                <a class="inline-flex text-base gap-2 hover:opacity-70 transition-opacity duration-300"
+                    href="mailto:{{ global_settings.email }}">
+                    <img class='mr-2 w-5 my-auto' loading="lazy" src="{{ STATIC_URL }}{{ THEME_URL }}img/icons/mail.png" alt="">
+                    Email us at {{ global_settings.email }}
+                </a>
+            </div>
             {% endif %}
 
             <!-- TODO: Add links from backend -->
