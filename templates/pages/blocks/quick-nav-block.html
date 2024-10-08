@@ -2,7 +2,7 @@
 <!-- #region LATEST ARTICLE -->
 
 <section class="{{value.background_color}} group">
-    <a class="container flex items-center justify-between py-5" href="{% if value.page_url %} {% pageurl value.page_url %} {% elif %}{{value.external_url}}{% endif %}">
+    <a class="container flex items-center justify-between py-5" href="{% if value.page_url %} {% pageurl value.page_url %} {% elif value.external_url %} {{value.external_url}}{% endif %}">
         <div class="flex">
             {% if value.image %}
                 {% image value.image fill-80x80 format-jpeg as image %}
