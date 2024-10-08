@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('helpers', '0009_auto_20230901_0449'),
+        ('helpers', '0010_globalsettings_ga_measurement_id.py'),
     ]
 
     operations = [
