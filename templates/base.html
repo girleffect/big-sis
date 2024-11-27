@@ -1,6 +1,6 @@
 <!doctype html>
 {% load wagtailuserbar tailwind_tags helpers_tags wagtailsettings_tags %}
-{% get_settings %}
+{% get_settings use_default_site=True %}
 {% get_stage as stage %}
 {% check_for_moya_app as moya_flag %}
 

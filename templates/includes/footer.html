@@ -1,5 +1,5 @@
 {% load  wagtailcore_tags wagtailsettings_tags wagtailimages_tags %}
-{% get_settings %}
+{% get_settings use_default_site=True %}
 <!-- #region FOOTER -->
 {% with global_settings=settings.helpers.GlobalSettings %}
 {% if global_settings.background_image or global_settings.text or global_settings.email or global_settings.sitemap or global_settings.facebook_url or global_settings.tiktok_url or global_settings.external_url_text or global_settings.external_url %}
